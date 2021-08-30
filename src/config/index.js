@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const axios = axios.create({
+export default  axios.create({
   url: "https://solfluidrocket.herokuapp.com",
 });

@@ -3,7 +3,7 @@ import SystemProgram, {
   TransactionInstruction,
 } from "@solana/web3.js";
 import programAccount from "constants.js";
-import { axios } from "../config";
+import axios from "../config";
 
 export async function createStream(
   connection,
@@ -13,8 +13,8 @@ export async function createStream(
   endtime,
   amountspeed
 ) {
-
-  let pubkeystorage = await createNewAccount(connection, wallet);
+  let amounttosend = (endtime - starttime) * amountspeed;
+  let pubkeystorage = await createNewAccount(connection, wallet, amounttosend);
   let reciverpubkey = PublicKey(reciveraddress);
   let response = await axios.post("/stream", {
     start_time: starttime,
@@ -45,7 +45,7 @@ export async function createStream(
   // stream created fetch all streams
 }
 
-async function createNewAccount(connection, wallet) {
+async function createNewAccount(connection, wallet, amounttosend) {
   const SEED = "abcdef" + Math.random().toString();
   let newAccount = await PublicKey.createWithSeed(
     wallet.publicKey,
@@ -54,7 +54,8 @@ async function createNewAccount(connection, wallet) {
   );
   //size is 104;
   const space = 110;
-  const lamports = await connection.getMinimumBalanceForRentExemption(space);
+  const lamports =
+    (await connection.getMinimumBalanceForRentExemption(space)) + amounttosend;
   const instruction = SystemProgram.createAccountWithSeed({
     fromPubkey: wallet.publicKey,
     basePubkey: wallet.publicKey,
