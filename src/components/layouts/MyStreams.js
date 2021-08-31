@@ -1,5 +1,6 @@
 import React from 'react';
 import { Steps, Descriptions, Badge, Table, Col, Space } from 'antd';
+import Tableitem from '../ui/table-item';
 
 const { Step } = Steps;
 
@@ -56,12 +57,12 @@ const columns = [
 
 const MyStreams = () => {
     return (
-        <div>
+        <div style={{height:"100%"}}>
           <Col className="site-page-header">
                   <h3 className="page-heading">Stream History<br/><div className="page-sub-heading">Check progress of your streams here.</div></h3>
           </Col>
-          <div>
-              <Descriptions title="Stream Info" bordered>
+          <div style={{backgroundColor:"white", padding:25, height:"100%"}}>
+              {/* <Descriptions title="Stream Info" bordered>
                       <Descriptions.Item label="ID">2</Descriptions.Item>
                       <Descriptions.Item label="Token">SOL</Descriptions.Item>
                       <Descriptions.Item label="Start Time">2018-04-24 18:00:00</Descriptions.Item>
@@ -79,18 +80,19 @@ const MyStreams = () => {
                           <br/>
                           Recipient: sol131jbibisbdsoiqnnzzz
                       </Descriptions.Item>
-              </Descriptions>
-              <br/>
-              <br/>
-              <Steps current={1}>
+              </Descriptions> */}
+              {/* <br/>
+              <br/> */}
+              {/* <Steps current={1}>
                   <Step title="Started Streaming" description="On 25 Feb, 2021 @5:00 PM" />
                   <Step title="In Progress" subTitle="Left 00:50:00" description="Streamed 234.22 SOL" />
                   <Step title="Ends" description="On 25 Feb, 2021 @5:50 PM" />
-              </Steps>
-              <br/>
-              <br/>
+              </Steps> */}
+              {/* <br/>
+              <br/> */}
               <div>Select Stream</div>
-              <Table bordered={true} columns={columns} dataSource={data} />
+              <Tableitem ></Tableitem>
+              {/* <Table bordered={true} columns={columns} dataSource={data} /> */}
           </div>
         </div>
     )
