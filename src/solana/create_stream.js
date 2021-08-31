@@ -13,8 +13,14 @@ export async function createStream(
   endtime,
   amountspeed
 ) {
+  const SEED = "abcdef" + Math.random().toString();
+        let newAccount = await PublicKey.createWithSeed(
+            wallet.publicKey,
+            SEED,
+            programAccount
+        );
+
   let amounttosend = (endtime - starttime) * amountspeed;
-  let pubkeystorage = await createNewAccount(connection, wallet, amounttosend);
   let reciverpubkey = PublicKey(reciveraddress);
   let response = await axios.post("/stream", {
     start_time: starttime,
@@ -26,17 +32,35 @@ export async function createStream(
     from: wallet.publicKey.toBytes(),
   });
 
+  const lamports =
+  (await connection.getMinimumBalanceForRentExemption(space)) + amounttosend;
+
+ const space = 110;
+        const lamports =
+            (await connection.getMinimumBalanceForRentExemption(space)) + amounttosend;
+        const instruction = SystemProgram.createAccountWithSeed({
+            fromPubkey: wallet.publicKey,
+            basePubkey: wallet.publicKey,
+            seed: SEED,
+            newAccountPubkey: newAccount,
+            lamports,
+            space,
+            programId: programAccount,
+        });
+
   const createInstruction = new TransactionInstruction({
     keys: [
-      { pubkey: pubkeystorage, isSigner: false, isWritable: true },
+      { pubkey: newAccount, isSigner: false, isWritable: true },
       { pubkey: wallet.publicKey, isSigner: true, isWritable: false },
       { pubkey: reciverpubkey, isSigner: false, isWritable: false },
     ],
     programAccount,
     data: response.data.result,
   });
-  const trans = await setPayerAndBlockhashTransaction(
+ 
+  const trans = await setPayerAndBlockhashTransaction2(
     wallet,
+    instruction,
     createInstruction
   );
   const signature = await signAndSendTransaction(wallet, trans);
@@ -54,16 +78,15 @@ async function createNewAccount(connection, wallet, amounttosend) {
   );
   //size is 104;
   const space = 110;
-  const lamports =
-    (await connection.getMinimumBalanceForRentExemption(space)) + amounttosend;
+ 
   const instruction = SystemProgram.createAccountWithSeed({
     fromPubkey: wallet.publicKey,
     basePubkey: wallet.publicKey,
     seed: SEED,
     newAccountPubkey: newAccount,
-    lamports,
+    lamports:0,
     space,
-    programAccount,
+    programId:programAccount,
   });
   let trans = await setPayerAndBlockhashTransaction(wallet, instruction);
   let signature = await signAndSendTransaction(wallet, trans);
