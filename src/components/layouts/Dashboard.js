@@ -39,17 +39,22 @@ const Dashboard = ({ collapsed }) => {
                         <h2 className="home-header" style={{fontWeight:'600'}}>The future is real time <br/> finance </h2>
                     </div>
                     <Row>
-                    <button className="animated-button">
-                        <div class="left-btn"></div>
-                           <LoginOutlined/>  Connect Wallet
-                        <div class="right-btn"></div>
-                    </button>
+                        <button className="animated-button" style={{marginLeft:75}}>
+                            <div class="left-btn"></div>
+                            <LoginOutlined/>  Connect Wallet
+                            <div class="right-btn"></div>
+                        </button>
+                        <button className="animated-button2" style={{marginLeft:10}}>
+                            <div class="left-btn"></div>
+                             View Stream
+                            <div class="right-btn"></div>
+                        </button>
                     </Row>
                     {/* </Row> */}
                 </div>
             </Row>
             {/**animation**/}
-            <Row style={{position:"absolute", bottom:0, right:16, left:`${collapsed?'96px':'216px'}`, bottom:20}}>
+            <Row style={{position:"absolute", bottom:0, right:16, left:`${collapsed?'80px':'200px'}`, bottom:20}}>
                 <svg className="waves" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
                     <defs>
