@@ -29,10 +29,11 @@ const App = () => {
                     <Content
                         className="site-layout-background"
                         style={{
-                        marginRight: 16,
-                        marginLeft: 16,
-                        marginTop: 80,
-                        marginBottom: 20,
+                        // marginRight: 16,
+                        // marginLeft: 16,
+                        // marginTop: 80,
+                        marginTop: 64,
+                        // marginBottom: 20,
                         height: '89vh',//?
                         overflow: 'initial',
                         backgroundColor:"rgb(234,249,254)",

@@ -2,12 +2,15 @@
     font-weight: 600;
     font-size: 54px;
     margin-left: 20px;
-    background: -webkit-linear-gradient(rgb(12, 9, 173), rgb(30, 179, 199));
+    background: -webkit-linear-gradient(#667DE5, #856BCC,#965AB0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .page-sub-heading{
+    background: rgba(34, 31, 31, 0.651);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-left: 5px;
     font-weight: 600;
     font-size: large;

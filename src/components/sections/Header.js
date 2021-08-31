@@ -4,47 +4,60 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   LoginOutlined,
+  LogoutOutlined
 } from "@ant-design/icons";
-import { toggleWallet } from "../../solana/wallet";
+import { useSelector, useDispatch } from "react-redux";
+
+import { connectWallet, disconnectWallet } from "../../actions";
+
 const { Header } = Layout;
 
 const HeaderSection = (props) => {
-  const toggle = () => {
-    props.setCollapsed(!props.collapsed);
-  };
+    const toggle = () => {
+      props.setCollapsed(!props.collapsed);
+    };
 
-  return (
-    <Header
-      className="site-layout-background"
-      style={{ padding: 0, position: "fixed", zIndex: 1, width: "100%" }}
-    >
-      <Row justify="space-between">
-        <Row>
-          <Col>
-            <span className="trigger" onClick={toggle}>
-              {props.collapsed ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />}
-            </span>
-          </Col>
-          <Col>
-            <div className="logo">SOLFUILD</div>
+    const selector = useSelector(state=>state.walletConfig);
+    const dispatch = useDispatch();
+
+    const handleOnClick = (e) => {
+      e.preventDefault();
+      if(selector.wallet.connected){
+        dispatch(disconnectWallet());
+      }else{
+        dispatch(connectWallet());
+      }
+    }
+
+    return (
+      <Header
+        className="site-layout-background"
+        style={{ padding: 0, position: "fixed", zIndex: 1, width: "100%" }}
+      >
+        <Row justify="space-between">
+          <Row>
+            <Col>
+              <span className="trigger" onClick={toggle}>
+                {props.collapsed ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />}
+              </span>
+            </Col>
+            <Col>
+              <div className="logo">SOLFUILD</div>
+            </Col>
+          </Row>
+          <Col style={{ marginRight: "15px" }}>
+            <Button
+              type="primary"
+              icon={(selector.wallet.connected)?<LogoutOutlined/>:<LoginOutlined />}
+              onClick={handleOnClick}
+              shape="round"
+            >
+			{selector.wallet.connected?"Disconnect Wallet":"Connect Wallet"}
+            </Button>
           </Col>
         </Row>
-        <Col style={{ marginRight: "15px" }}>
-          <Button
-            type="primary"
-            icon={<LoginOutlined />}
-            onClick={(e) => {
-              e.preventDefault();
-              toggleWallet();
-            }}
-            shape="round"
-          >
-            Connect Wallet
-          </Button>
-        </Col>
-      </Row>
-    </Header>
-  );
+      </Header>
+    );
 };
 
 export default HeaderSection;

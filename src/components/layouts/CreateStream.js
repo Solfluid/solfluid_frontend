@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Steps, Result, Layout, Form, Input, Button, InputNumber, Col, Select, DatePicker } from 'antd';
 import { SmileOutlined, SmileTwoTone } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
+import { createStream } from '../../actions';
 
 const { Step } = Steps;
 const { Content } = Layout;
@@ -13,8 +15,22 @@ const rangeConfig = {
 };
 
 const CreateStream = () => {
-    const [currentStep, setCurrentStep] = useState(0);
+    const [currentStep, setCurrentStep] = useState(1);
     const [token, setToken] = useState();
+    const dispatch = useDispatch();
+
+    const handleOnClick = (e) => {
+        e.preventDefault();
+        dispatch(createStream(
+            {
+                receiverAddress:"HDcjW4MVa5rENKAMHcyzzXYnRRKVEw8Y8FmYv9QdoGct",
+                startTime: 1630412454,
+                endTime: 1630419654,
+                amountSpeed: 10
+            }
+        ));
+    }
+
 
     const stepContent = [
         (
@@ -46,8 +62,8 @@ const CreateStream = () => {
                             allowClear
                         >
                             <Option value="SOL">SOL</Option>
-                            <Option disabled={true} value="NA">Coming soon</Option>
-                            <Option disabled={true} value="NA">Coming soon</Option>
+                            <Option disabled={true} value="NA1">Coming soon</Option>
+                            <Option disabled={true} value="NA2">Coming soon</Option>
                         </Select>
                     </Form.Item>
             
@@ -70,8 +86,8 @@ const CreateStream = () => {
                         <Input placeholder="Enter the address of recipient."/>
                     </Form.Item>
             
-                    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                        <Button type="primary" htmlType="submit">
+                    <Form.Item wrapperCol={{ offset: 10, span: 16 }}>
+                        <Button type="primary" htmlType="submit" onClick={handleOnClick}>
                             Submit
                         </Button>
                     <Button style={{marginLeft:"5px"}} type="primary" onClick={()=>{setCurrentStep(0)}}>
@@ -88,7 +104,6 @@ const CreateStream = () => {
         <div>
             <Col className="site-page-header">
                 <h3 className="page-heading">Stream Tokens<br/><div className="page-sub-heading">Just follows two simple steps to start streaming SOL.</div></h3>
-                
             </Col>
             <div style={{ backgroundColor: 'white', width:"100%", height:"80vh", padding:20 }}>
                 <Steps className="steps" current={currentStep}>

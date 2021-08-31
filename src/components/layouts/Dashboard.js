@@ -1,35 +1,53 @@
 import React, { useEffect } from 'react';
 import lottie from 'lottie-web';
+import { useRive } from 'rive-react';
 import { Row, Col } from 'antd';
+import { LoginOutlined } from '@ant-design/icons';
 
 const Dashboard = ({ collapsed }) => {
 
+    const { RiveComponent, rive } = useRive({
+        src: 'https://cdn.jsdelivr.net/gh/NishantChandla/jsdelivr@master/balloonist_white.riv',
+        stateMachines: 'Balloon State Machine',
+        autoplay: true,
+    });
+
     useEffect(()=>{
-        lottie.loadAnimation({
-            container: document.querySelector(".animator"),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'https://assets4.lottiefiles.com/private_files/lf30_czqpucro.json'
-        });
-        return ()=>{
-            if(document.querySelector(".animator")!==null){
-                document.querySelector(".animator").removeChild(document.querySelector(".animator").firstChild);
-            }
-        }
+        // rive.play();
+        // lottie.loadAnimation({
+        //     container: document.querySelector(".animator"),
+        //     renderer: 'svg',
+        //     loop: true,
+        //     autoplay: true,
+        //     path: 'https://assets4.lottiefiles.com/private_files/lf30_czqpucro.json'
+        // });
+        // return ()=>{
+        //     if(document.querySelector(".animator")!==null){
+        //         document.querySelector(".animator").removeChild(document.querySelector(".animator").firstChild);
+        //     }
+        // }
     },[]);
 
     return (
         <div style={{height:"100%", width:"100%", borderRadius:'1%'}}>
-            <div style={{padding: 20}}>
-                
-                <div className="animator" style={{height:"40vh", width:"40vh", marginLeft:"auto"}}/>
-                <Row justify="center">
-                    <Col>
-                    <h2 style={{fontWeight:'600'}}>FRICTIONLESS REALTIME FINANCE </h2>
-                    </Col>
-                </Row>
-            </div>
+            <Row align="right">
+                <RiveComponent className="balloon-animation"/>
+                <div>  
+                    {/* <div className="animator" style={{height:"40vh", width:"40vh", marginLeft:"auto"}}/> */}
+                    {/* <Row justify="center"> */}
+                    <div style={{padding: 20, marginTop:"20vh", marginLeft:30}}>
+                        <h2 className="home-header" style={{fontWeight:'600'}}>The future is real time <br/> finance </h2>
+                    </div>
+                    <Row>
+                    <button className="animated-button">
+                        <div class="left-btn"></div>
+                           <LoginOutlined/>  Connect Wallet
+                        <div class="right-btn"></div>
+                    </button>
+                    </Row>
+                    {/* </Row> */}
+                </div>
+            </Row>
             {/**animation**/}
             <Row style={{position:"absolute", bottom:0, right:16, left:`${collapsed?'96px':'216px'}`, bottom:20}}>
                 <svg className="waves" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink"
