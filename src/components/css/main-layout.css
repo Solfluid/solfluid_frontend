@@ -82,7 +82,28 @@ body{
   overflow: hidden;   
 }
 
+.animated-button2 {
+  position:relative;
+  padding: 10px 20px;  
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-transform: uppercase; 
+  color: var(--btn-color);
+  
+  background-color: white;
+  box-shadow: var(--shadow-color) 2px 2px 22px;
+  border-radius: 20px; 
+  z-index: 0;  
+  overflow: hidden;   
+}
+
 .animated-button:focus {
+  outline-color: transparent;
+  box-shadow: var(--btn-color) 2px 2px 22px;
+}
+
+.animated-button2:focus {
   outline-color: transparent;
   box-shadow: var(--btn-color) 2px 2px 22px;
 }
