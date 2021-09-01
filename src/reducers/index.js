@@ -38,8 +38,21 @@ const createStreamReducer = (state = { result: false, id: null }, action) => {
       return state;
   }
 };
+const getStreamReducer = (state = { sending: [], receving: [] }, action) => {
+  switch (action.type) {
+    case "DATA_RECEIVED":
+      console.log(action);
+      return {
+        sending: action.result.sending,
+        receving: action.result.receving,
+      };
+    default:
+      return state;
+  }
+};
 
 export default combineReducers({
   walletConfig: connectWalletReducer,
   createStream: createStreamReducer,
+  streamData: getStreamReducer,
 });

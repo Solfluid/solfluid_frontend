@@ -9,7 +9,15 @@ import {
 
 import "../css/table-item.css";
 
-const Tableitem = ({ children, status, earned, token, amount, cardCss }) => {
+const Tableitem = ({
+  children,
+  status,
+  earned,
+  token,
+  amount,
+  cardCss,
+  receiver,
+}) => {
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -28,7 +36,7 @@ const Tableitem = ({ children, status, earned, token, amount, cardCss }) => {
           <h3 className="item-heading">
             {earned}{" "}
             <Popover
-              title="Reward Token"
+              title="Reward Token(In Lamports)"
               content={
                 <div>
                   This is the amount of tokens earned.
@@ -45,7 +53,7 @@ const Tableitem = ({ children, status, earned, token, amount, cardCss }) => {
         <Col>
           <h4 className="item-sub-heading">To</h4>
           <h3 className="item-heading">
-            HDcjW4MVa5rENKAMHcyzzXYnRRKVEw8Y8FmYv9QdoGct
+            { receiver }
             <CheckCircleTwoTone />
           </h3>
         </Col>
@@ -60,7 +68,7 @@ const Tableitem = ({ children, status, earned, token, amount, cardCss }) => {
           <h3 className="item-heading">
             {amount}{" "}
             <Popover
-              title="Stream Amount"
+              title="Stream Amount(In Lamports)"
               content={
                 <div>
                   This is the total amount of tokens,
