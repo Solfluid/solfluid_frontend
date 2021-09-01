@@ -174,9 +174,11 @@ export const createStream = ({receiverAddress, startTime, endTime, amountSpeed})
             );
             const signature = await signAndSendTransaction(wallet, trans, connection);
             const result = await connection.confirmTransaction(signature, "Create Stream");
+            dispatch({type:"CREATE_RESPONSE",result:true,id:newAccount.toString()})
             console.log("end sendMessage", result);
         }catch(e){
             console.log(e);
+            dispatch({type:"CREATE_FAILED",result:false})
         }
     }
 }
