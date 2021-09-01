@@ -16,6 +16,8 @@ import { SmileOutlined, SmileTwoTone } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { createStream } from "../../actions";
 
+import { connectWallet } from "../../actions";
+
 const { Step } = Steps;
 const { Content } = Layout;
 const { Option } = Select;
@@ -35,6 +37,17 @@ const CreateStream = () => {
   const [range, setRange] = useState();
   const [loader, setLoader] = useState(false);
   const selector = useSelector((state) => state.createStream);
+
+  const selector2 = useSelector((state) => state.walletConfig);
+
+  const connectWalletClick = (e) => {
+    e.preventDefault();
+    dispatch(connectWallet());
+  };
+
+  useEffect(() => {
+    if (selector2.wallet.connected) setCurrentStep(1);
+  }, [selector2]);
 
   useEffect(() => {
     dispatch({ type: "CLEAR_RESPONSE" });
@@ -79,12 +92,17 @@ const CreateStream = () => {
       icon={<SmileOutlined />}
       title="Great, Lets get started!"
       subTitle="Streams data is saved on an system account, and we require some rent for that.
-But dont worry This will be returned to you whenever you want to cancel stream along with the rewards.
-Click Next to continue"
+But don't worry This will be returned to you whenever you want to cancel stream along with the rewards."
       extra={
-        <Button type="primary" onClick={() => setCurrentStep(1)}>
-          Next
-        </Button>
+        selector2.wallet.connected ? (
+          <Button type="primary" onClick={() => setCurrentStep(1)}>
+            Next
+          </Button>
+        ) : (
+          <Button type="primary" onClick={connectWalletClick}>
+            Connect wallet and Continue
+          </Button>
+        )
       }
     />,
 
