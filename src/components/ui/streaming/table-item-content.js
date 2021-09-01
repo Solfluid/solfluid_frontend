@@ -1,64 +1,84 @@
-import React from 'react';
-import { Descriptions, Badge, Steps, Button, Row, Col, Card } from 'antd';
+import React, { useState } from 'react';
+import { Drawer, Steps, Button, Row, Col, Card, Slider } from 'antd';
+import { useDispatch } from 'react-redux';
+
+import { cancelStream } from '../../../actions';
 
 const { Step } = Steps;
 const { Meta } = Card;
 
-const TableContent = ({startTime, endTime, withdrawn, receiver, streamed, statusID}) => {
-    return (
-        <div style={{padding:30, border:"rgb(0,0,0,0.09) solid 1px"}}>
-            <Row justify="space-between" align="middle">
-                <Col span={15}>
-                    <Row gutter={[16,16]}>
-                        <Col span={12}>
-                            <Meta style={{backgroundColor:"white"}} className="card-custom-extra item-heading" title="Start Time" description={new Date().toUTCString()}>
-                            </Meta>
-                        </Col>
-                        <Col span={12}>
-                            <Meta style={{backgroundColor:"white"}} className="card-custom-extra item-heading" title="End Time" description={new Date().toUTCString()}>
-                            </Meta>
-                        </Col>
-                        <Col span={12}>
-                            <Meta style={{backgroundColor:"white"}} className="card-custom-extra item-heading" title="Withdrawn" description="100">
-                            </Meta>
-                        </Col>
-                        <Col span={12}>
-                            <Meta style={{backgroundColor:"white"}} className="card-custom-extra item-heading" title="Recipient" description="HDcjW4MVa5rENKAMHcyzzXYnRRKVEw8Y8FmYv9QdoGct">
-                            </Meta>
-                        </Col>
-                    </Row>
-                </Col>
+const TableContent = ({startTime, endTime, withdrawn, receiver, streamed, statusID, earned, streamID}) => {
+    const [drawer, setDrawer] = useState(false);
+    const [ratio, setRatio] = useState(50);
+    const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
 
-                <Col span={8}>
-                        <Card style={{backgroundColor:"white"}} className="card-custom-extra" title="Rewards Earned">
-                            <Row justify="space-between">
-                                <div className="card-earned-number">0.00</div>
-                                <Button type="primary" shape="round">Cancel Stream</Button>
-                            </Row>
-                        </Card>
-                </Col>
-                {/* <Descriptions bordered>
-                        <Descriptions.Item className="card" label="Start Time" labelStyle={{color: "rgba(24, 24, 24, 0.8)",fontWeight: "500",fontSize: "small"}}>{startTime}</Descriptions.Item>
-                        <Descriptions.Item label="End Time" labelStyle={{color: "rgba(24, 24, 24, 0.8)",fontWeight: "500",fontSize: "small"}} span={2}>
-                            {endTime}
-                        </Descriptions.Item>
-                        <Descriptions.Item label="Withdrawn" labelStyle={{color: "rgba(24, 24, 24, 0.8)",fontWeight: "500",fontSize: "small"}}>{withdrawn}</Descriptions.Item>
-                        <Descriptions.Item label="Recipient" labelStyle={{color: "rgba(24, 24, 24, 0.8)",fontWeight: "500",fontSize: "small"}}>
-                            {receiver}
-                        </Descriptions.Item>
-                </Descriptions>
-                <Col align="center">
-                    <div className="card-custom-both" style={{margin:10, backgroundColor:"white"}}>Earned: 10</div>
-                    <Button type="primary" shape="round">Cancel Stream</Button>
-                </Col> */}
-              </Row>
-              <br/>
-              <br/>
-              <Steps current={statusID}>
-                  <Step title="Started Streaming" description={`On ${startTime}`} />
-                  <Step title="In Progress" subTitle="Left 00:50:00" description={`Streamed ${streamed}`} />
-                  <Step title="Ends" description={`On ${endTime}`} />
-              </Steps>
+
+    return (
+        <div className="site-drawer-render-in-current-wrapper">
+            <div style={{padding:30, border:"rgb(0,0,0,0.09) solid 1px"}}>
+                <Row justify="space-between" align="middle">
+                    <Col span={15}>
+                        <Row gutter={[16,16]}>
+                            <Col span={12}>
+                                <Meta style={{backgroundColor:"white"}} className="card-custom-extra item-heading" title="Start Time" description={startTime}>
+                                </Meta>
+                            </Col>
+                            <Col span={12}>
+                                <Meta style={{backgroundColor:"white"}} className="card-custom-extra item-heading" title="End Time" description={endTime}>
+                                </Meta>
+                            </Col>
+                            <Col span={12}>
+                                <Meta style={{backgroundColor:"white"}} className="card-custom-extra item-heading" title="Withdrawn" description={withdrawn.toString()}>
+                                </Meta>
+                            </Col>
+                            <Col span={12}>
+                                <Meta style={{backgroundColor:"white"}} className="card-custom-extra item-heading" title="Recipient" description={receiver}>
+                                </Meta>
+                            </Col>
+                        </Row>
+                    </Col>
+
+                    <Col span={8}>
+                            <Card style={{backgroundColor:"white"}} className="card-custom-extra" title="Rewards Earned">
+                                <Row justify="space-between">
+                                    <div className="card-earned-number">{earned.toString()}</div>
+                                    <Button type="primary" shape="round" onClick={()=>setDrawer(true)}>Close Stream</Button>
+                                </Row>
+                            </Card>
+                    </Col>
+                </Row>
+                <br/>
+                <br/>
+                <Steps current={statusID}>
+                    <Step title="Started Streaming" description={`On ${startTime}`} />
+                    <Step title="In Progress" description={`Streaming ${streamed.toString()}`} />
+                    <Step title="Ends" description={`On ${endTime}`} />
+                </Steps>
+            </div>
+            <Drawer
+          title="Choose reward ratio"
+          placement="right"
+          closable={true}
+          onClose={()=>setDrawer(false)}
+          visible={drawer}
+          getContainer={false}
+          style={{ position: 'absolute' }}
+        >
+            <Slider
+                min={0}
+                max={100}
+                onChange={(e)=>setRatio(e)}
+                value={ratio}
+            />
+            <Meta style={{backgroundColor:"white"}} className="card-custom-extra item-sub-heading" title="Sender reward" description={(earned - (earned*ratio)/100).toString()}>
+            </Meta>
+            <br/>
+            <Meta style={{backgroundColor:"white"}} className="card-custom-extra item-sub-heading" title="Recipient reward" description={((earned*ratio)/100).toString()}>
+            </Meta>
+            <br/>
+            <Button type="primary" shape="round" loading={loading} onClick={()=>{dispatch(cancelStream(streamID, ratio, receiver));setLoading(true); setTimeout(()=>setLoading(false),6000);}}>Submit</Button>
+        </Drawer>
         </div>
     );
 }

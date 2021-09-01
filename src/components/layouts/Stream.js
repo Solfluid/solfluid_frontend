@@ -11,7 +11,7 @@ const Stream = () => {
             <Col className="site-page-header">
                   <h3 className="page-heading">Receiving<br/><div className="page-sub-heading">Check Incoming streams, status, payroll.</div></h3>
             </Col>
-            <div style={{backgroundColor:"white", padding:25, height:"100%"}}>
+            <div style={{backgroundColor:"#faf9fa", padding:25, height:"100%"}}>
               <TableItem
                 status="Streaming"
                 earned="10"

@@ -1,16 +1,31 @@
-import React, { useEffect } from 'react';
-import lottie from 'lottie-web';
-import { useRive } from 'rive-react';
-import { Row, Col } from 'antd';
-import { LoginOutlined } from '@ant-design/icons';
+import React, { useEffect } from "react";
+import lottie from "lottie-web";
+import { useRive } from "rive-react";
+import { Row, Col } from "antd";
+import { LoginOutlined } from "@ant-design/icons";
 
 const Dashboard = ({ collapsed }) => {
+  const { RiveComponent, rive } = useRive({
+    src: "https://cdn.jsdelivr.net/gh/NishantChandla/jsdelivr@master/balloonist_white.riv",
+    stateMachines: "Balloon State Machine",
+    autoplay: true,
+  });
 
-    const { RiveComponent, rive } = useRive({
-        src: 'https://cdn.jsdelivr.net/gh/NishantChandla/jsdelivr@master/balloonist_white.riv',
-        stateMachines: 'Balloon State Machine',
-        autoplay: true,
-    });
+  useEffect(() => {
+    // rive.play();
+    // lottie.loadAnimation({
+    //     container: document.querySelector(".animator"),
+    //     renderer: 'svg',
+    //     loop: true,
+    //     autoplay: true,
+    //     path: 'https://assets4.lottiefiles.com/private_files/lf30_czqpucro.json'
+    // });
+    // return ()=>{
+    //     if(document.querySelector(".animator")!==null){
+    //         document.querySelector(".animator").removeChild(document.querySelector(".animator").firstChild);
+    //     }
+    // }
+  }, []);
 
     useEffect(()=>{
         // rive.play();
@@ -69,7 +84,7 @@ const Dashboard = ({ collapsed }) => {
                 </svg>
             </Row>
         </div>
-    );
-}
+  );
+};
 
 export default Dashboard;
