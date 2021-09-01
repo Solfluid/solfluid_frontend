@@ -1,0 +1,79 @@
+.table-item{
+    margin:2px 30px;
+}
+
+.card-custom-bottom {
+    box-shadow: rgba(3, 8, 20, 0.2) 0px 0.00rem 0.25rem;
+    transition: all 500ms;
+    overflow: hidden;
+    padding: 10px;
+    cursor: pointer;
+	border-radius: 0px 0px 20px 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+ }
+ .card-custom-bottom:hover {
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+    transform: translateY(-0.5px) scale(1);
+ }
+
+
+ .card-custom-none {
+    box-shadow: rgba(3, 8, 20, 0.2) 0px 0.02rem 0.25rem;
+    transition: all 500ms;
+    overflow: hidden;
+    padding: 10px;
+    cursor: pointer;
+	/* border-radius: 0px 0px 20px 20px; */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+ }
+ .card-custom-none:hover {
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+    transform: translateY(-0.5px) scale(1);
+ }
+
+.card-custom {
+    box-shadow: rgba(3, 8, 20, 0.2) 0px 0.00rem 0.25rem;
+    transition: all 500ms;
+    overflow: hidden;
+    padding: 10px;
+    cursor: pointer;
+	border-radius: 20px 20px 0px 0px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+ }
+.card-custom:hover {
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+    transform: translateY(-0.5px) scale(1);
+ }
+
+ .card-custom-both {
+    box-shadow: rgba(3, 8, 20, 0.2) 0px 0.00rem 0.25rem;
+    transition: all 500ms;
+    overflow: hidden;
+    padding: 10px;
+    cursor: pointer;
+	border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+ }
+ /* .card{
+	 border-radius: 20px;
+ } */
+
+ .item-heading{
+     color: #12304bda;
+     font-weight: 600;
+     font-size: small;
+ }
+
+ .item-sub-heading{
+    color: rgba(24, 24, 24, 0.747);
+    font-weight: 600;
+    font-size: smaller;
+ }
