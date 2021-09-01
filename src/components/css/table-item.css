@@ -62,18 +62,54 @@
     background-position: center;
     background-repeat: no-repeat;
  }
+
+ .card-custom-both:hover {
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+    transform: translateY(-0.5px) scale(1);
+ }
+
+
+ .card-custom-extra {
+    box-shadow: rgba(3, 8, 20, 0.2) 0px 0.00rem 0.25rem;
+    transition: all 500ms;
+    overflow: hidden;
+    padding: 10px;
+    cursor: pointer;
+	border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+ }
+
+ .ant-card-meta-title{
+    color: #12304bda;
+    font-weight: 500;
+    font-size: smaller;
+ }
+
+ .ant-card-head-title{
+    color: #12304bda;
+    font-weight: 500;
+    font-size: small;
+ }
+
+ .card-earned-number{
+    color: #12304bda;
+    font-weight: 700;
+    font-size: small;
+ }
  /* .card{
 	 border-radius: 20px;
  } */
 
  .item-heading{
      color: #12304bda;
-     font-weight: 600;
+     font-weight: 500;
      font-size: small;
  }
 
  .item-sub-heading{
     color: rgba(24, 24, 24, 0.747);
-    font-weight: 600;
+    font-weight: 500;
     font-size: smaller;
  }

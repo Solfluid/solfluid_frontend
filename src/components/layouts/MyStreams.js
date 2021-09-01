@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col } from 'antd';
-import TableItem from '../ui/table-item';
-import TableContent from '../ui/table-item-content';
+import TableItem from '../ui/streaming/table-item';
+import TableContent from '../ui/streaming/table-item-content';
 
 const MyStreams = () => {
     return (
@@ -9,7 +9,7 @@ const MyStreams = () => {
           <Col className="site-page-header">
                   <h3 className="page-heading">Stream History<br/><div className="page-sub-heading">Check progress of your streams here.</div></h3>
           </Col>
-          <div style={{backgroundColor:"white", padding:25, height:"100%"}}>
+          <div style={{backgroundColor:"#faf9fa", padding:25, height:"100%"}}>
               <TableItem
                 status="Streaming"
                 earned="10"

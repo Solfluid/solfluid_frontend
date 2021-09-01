@@ -17,18 +17,18 @@ const TableContent = ({startTime, endTime, withdrawn, receiver, streamed, status
                             {receiver}
                         </Descriptions.Item>
                 </Descriptions>
-                <Col align="center">
+                {/* <Col align="center">
                     <div className="card-custom-both" style={{margin:10, backgroundColor:"white"}}>Earned: 10</div>
                     <Button>Cancel Stream</Button>
-                </Col>
+                </Col> */}
               </Row>
               <br/>
               <br/>
-              <Steps current={statusID}>
+              {/* <Steps current={statusID}>
                   <Step title="Started Streaming" description={`On ${startTime}`} />
                   <Step title="In Progress" subTitle="Left 00:50:00" description={`Streamed ${streamed}`} />
                   <Step title="Ends" description={`On ${endTime}`} />
-              </Steps>
+              </Steps> */}
         </div>
     );
 }

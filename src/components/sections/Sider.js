@@ -19,7 +19,8 @@ const SiderSection = (props) => {
             position: 'fixed',
             left: 0,
             marginTop:64,
-            background:'white'
+            background:'white',
+            border:"rgb(0,0,0,0.09) solid 1px"
           }} trigger={null} collapsible collapsed={props.collapsed}>
             <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
                 <Menu.Item key="1" icon={<HomeOutlined/>}>

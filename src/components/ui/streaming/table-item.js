@@ -6,9 +6,8 @@ import {
     DownCircleOutlined,
     UpCircleOutlined
 } from '@ant-design/icons';
-import TableCotent from './table-item-content';
 
-import "../css/table-item.css";
+import "../../css/table-item.css";
 
 const Tableitem = ({children, status, earned, token, amount, cardCss}) => {
     const [toggle, setToggle] = useState(false);
@@ -28,7 +27,7 @@ const Tableitem = ({children, status, earned, token, amount, cardCss}) => {
                 </Col> 
                 <Col>
                     <h4 className="item-sub-heading">To</h4>
-                    <h3 className="item-heading">HDcjW4MVa5rENKAMHcyzzXYnRRKVEw8Y8FmYv9QdoGct<CheckCircleTwoTone/></h3>
+                    <h3 className="item-heading">HDcjW4MVa5rENKAMHcyzzXYnRRKVEw8Y8FmYv9QdoGct {" "}<CheckCircleTwoTone/></h3>
                 </Col>
                 <Col>
                     <h4 className="item-sub-heading">Token</h4>
@@ -51,7 +50,7 @@ const Tableitem = ({children, status, earned, token, amount, cardCss}) => {
                 </Col>
             </Row>
             {(toggle)?(
-                <div className="table-item" style={{backgroundColor:"#f5f5f5",}}>
+                <div className="table-item" style={{backgroundColor:"#f6f6f6",}}>
                     {children}
                 </div>
             ):null}

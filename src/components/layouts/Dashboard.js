@@ -54,7 +54,7 @@ const Dashboard = ({ collapsed }) => {
                 </div>
             </Row>
             {/**animation**/}
-            <Row style={{position:"absolute", bottom:0, right:16, left:`${collapsed?'80px':'200px'}`, bottom:20}}>
+            <Row style={{position:"absolute", bottom:0, right:0, left:`${collapsed?'80px':'200px'}`}}>
                 <svg className="waves" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
                     <defs>
