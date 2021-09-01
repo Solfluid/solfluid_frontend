@@ -42,7 +42,7 @@ const getStreamReducer = (state = { sending: [], receving: [] }, action) => {
   switch (action.type) {
     case "DATA_RECEIVED":
       console.log(action);
-      return {
+      return {...state, 
         sending: action.result.sending,
         receving: action.result.receving,
       };
@@ -50,6 +50,7 @@ const getStreamReducer = (state = { sending: [], receving: [] }, action) => {
       return state;
   }
 };
+
 
 export default combineReducers({
   walletConfig: connectWalletReducer,

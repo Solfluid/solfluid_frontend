@@ -7,7 +7,7 @@ import {
   UpCircleOutlined,
 } from "@ant-design/icons";
 
-import "../css/table-item.css";
+import "../../css/table-item.css";
 
 const Tableitem = ({
   children,

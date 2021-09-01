@@ -23,6 +23,7 @@ const SiderSection = (props) => {
         left: 0,
         marginTop: 64,
         background: "white",
+        border:"rgb(0,0,0,0.09) solid 1px"
       }}
       trigger={null}
       collapsible

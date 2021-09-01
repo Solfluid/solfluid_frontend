@@ -2,7 +2,7 @@ import React from "react";
 import { Descriptions, Badge, Steps, Button, Row, Col } from "antd";
 import { useDispatch } from "react-redux";
 
-import { cancelStream } from "../../actions";
+import { cancelStream } from "../../../actions";
 
 const { Step } = Steps;
 

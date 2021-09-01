@@ -98,10 +98,8 @@ export const cancelStream = (streamId, rewardForReceiver, receiverAddress) => {
           { pubkey: pubkey, isSigner: false, isWritable: true },
           { pubkey: pubkey, isSigner: false, isWritable: true },
           {
-            pubkey: new PublicKey(
-              "7f71EW6o6bjzUQ5kminkZVcLYKA3RznJf6CgcL2yNEom"
-            ),
-            isSigner: false,
+            pubkey: wallet.publicKey,
+            isSigner: true,
             isWritable: false,
           },
           { pubkey: reciverpubket, isSigner: false, isWritable: false },
@@ -117,10 +115,12 @@ export const cancelStream = (streamId, rewardForReceiver, receiverAddress) => {
       const signature = await signAndSendTransaction(wallet, trans, connection);
       const result = await connection.confirmTransaction(
         signature,
-        "singleGossip"
+        "CloseStream"
       );
+        dispatch(getAllStreams());
       console.log("end sendMessage", result);
     } catch (e) {
+      dispatch(getAllStreams());
       console.log(e);
     }
   };
@@ -207,10 +207,12 @@ export const createStream = ({
         result: true,
         id: newAccount.toString(),
       });
+      dispatch(getAllStreams());
       console.log("end sendMessage", result);
     } catch (e) {
       console.log(e);
       dispatch({ type: "CREATE_FAILED", result: false });
+      dispatch(getAllStreams());
     }
   };
 };
@@ -262,12 +264,12 @@ async function signAndSendTransaction(wallet, transaction, connection) {
 export const getAllStreams = () => {
   return async (dispatch, getState) => {
     try {
-      await dispatch(connectWallet());
+      // await dispatch(connectWallet());
       const { walletConfig } = getState();
       let response = await axios.get(
         `/getallstream/${walletConfig.wallet.publicKey.toString()}`
       );
-      if (response.status != 200) throw new Error("Something went wrong");
+      if (response.status !== 200) throw new Error("Something went wrong");
       dispatch({
         type: "DATA_RECEIVED",
         result: response.data,
