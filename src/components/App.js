@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Layout, notification } from "antd";
+import { Layout, notification, Button } from "antd";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { isMobile } from "react-device-detect";
 
@@ -11,6 +11,7 @@ import Dashboard from "./layouts/Dashboard";
 import MyStreams from "./layouts/MyStreams";
 import Stream from "./layouts/Stream";
 import CreateStream from "./layouts/CreateStream";
+import useDarkMode from "use-dark-mode";
 
 const { Content } = Layout;
 
@@ -32,22 +33,18 @@ const openNotificationFail = () => {
 
 
 const App = () => {
+  const dark = useDarkMode(false);
   const [collapsed, setCollapsed] = useState((isMobile)?true:false);
   const location = useLocation()
 	const [key, setKey] = useState(getKey(location.pathname));
-
-  // useEffect(()=>{
-  //   if(isMobile){
-  //     openNotificationFail();
-  //   }
-  // });
+  
 
   return (
     <Layout>
       <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
       <Layout>
-        <Sider setKey={setKey} getKey={getKey} keyName={key} collapsed={collapsed} />
+        <Sider dark={dark} setKey={setKey} getKey={getKey} keyName={key} collapsed={collapsed} />
         <Layout
           className="site-layout"
           style={{ marginLeft: `${collapsed ? "80px" : "200px"}` }}
@@ -62,9 +59,9 @@ const App = () => {
               // marginBottom: 20,
               height: "89vh", //?
               overflow: "initial",
-              backgroundColor: "rgb(234,249,254)",
+              // backgroundColor: "rgb(234,249,254)",
             }}
-          >
+          > 
             <Switch>
               <Route path="/sending">
                 <MyStreams />

@@ -6,6 +6,61 @@ body {
 	font-size: 100%;
 }
 
+body.dark-mode .site-layout-background{
+	background: #323d5c;
+}
+
+body.dark-mode .site-layout-background-header{
+	background: #27262c;
+}
+
+body.dark-mode .logo{
+	color: blueviolet;
+}
+
+body.dark-mode .sider-view{
+	background: #27262c;
+}
+
+body.dark-mode .ant-menu{
+	background: #27262c;
+	border-right: none;
+}
+
+body.dark-mode .ant-menu-item-active{
+	color: #2e2d30;
+}
+
+body.dark-mode .anticon{
+	color: #a497cf;
+}
+body.dark-mode .anticon:hover{
+	color: blueviolet;
+}
+
+body.dark-mode a{
+	color: #a497cf;
+}
+
+body.dark-mode a:hover{
+	color: #836dce;
+}
+body.dark-mode .ant-menu-item-selected{
+	background: blueviolet;
+}
+
+body.dark-mode .stream-view-body{
+ background: #08060b;
+}
+
+body.dark-mode{
+	background: #08060b;
+}
+
+.ant-menu{
+	border-right: none;
+}
+
 .trigger {
 	padding: 0 24px;
 	font-size: 18px;
@@ -20,18 +75,30 @@ body {
 
 .logo {
 	font-family: "Poppins", sans-serif;
-	background: rgba(255, 255, 255, 0.3);
 	font-weight: 700;
 	font-size: large;
 	color: rgba(22, 126, 187, 0.746);
 }
 
 .site-layout-background {
+	background: rgb(234,249,254);
+}
+
+.site-layout-background-header{
 	background: #fff;
 }
 
-.site-layout-background-dark{
-	background: black;
+
+
+.sider-view{
+	background: white;
+	border: rgb(0,0,0,0.09) solid 1px;
+}
+
+
+
+.stream-view-body{
+	background-color: #faf9fa;
 }
 
 .home-header {

@@ -68,7 +68,6 @@ const TableContent = ({
 						<Row gutter={[16, 16]}>
 							<Col span={12}>
 								<Meta
-									style={{ backgroundColor: "white" }}
 									className="card-custom-extra item-heading"
 									title="Start Time"
 									description={startTime}
@@ -76,7 +75,6 @@ const TableContent = ({
 							</Col>
 							<Col span={12}>
 								<Meta
-									style={{ backgroundColor: "white" }}
 									className="card-custom-extra item-heading"
 									title="End Time"
 									description={endTime}
@@ -84,7 +82,6 @@ const TableContent = ({
 							</Col>
 							<Col span={12}>
 								<Meta
-									style={{ backgroundColor: "white" }}
 									className="card-custom-extra item-heading"
 									title="Withdrawn"
 									description={withdrawn.toString()}
@@ -92,7 +89,6 @@ const TableContent = ({
 							</Col>
 							<Col span={12}>
 								<Meta
-									style={{ backgroundColor: "white" }}
 									className="card-custom-extra item-heading"
 									title="Recipient"
 									description={receiver}
@@ -103,7 +99,6 @@ const TableContent = ({
 
 					<Col span={8}>
 						<Card
-							style={{ backgroundColor: "white" }}
 							className="card-custom-extra"
 							title="Rewards Earned"
 						>
@@ -152,14 +147,12 @@ const TableContent = ({
 					value={ratio}
 				/>
 				<Meta
-					style={{ backgroundColor: "white" }}
 					className="card-custom-extra item-sub-heading"
 					title="Sender reward"
 					description={(earned - (earned * ratio) / 100).toString()}
 				></Meta>
 				<br />
 				<Meta
-					style={{ backgroundColor: "white" }}
 					className="card-custom-extra item-sub-heading"
 					title="Recipient reward"
 					description={((earned * ratio) / 100).toString()}

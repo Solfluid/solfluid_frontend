@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Row } from "antd";
 import {
 	HomeOutlined,
 	DownloadOutlined,
@@ -8,6 +8,7 @@ import {
 	BarChartOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
+import DarkModeToggle from 'react-dark-mode-toggle';
 
 const { Sider } = Layout;
 
@@ -19,13 +20,14 @@ const SiderSection = (props) => {
 	
 	return (
 		<Sider
+		className="sider-view"
 			style={{
 				overflow: "auto",
 				height: "100vh",
 				position: "fixed",
 				left: 0,
 				marginTop: 64,
-				background: "white",
+				// background: "white",
 				border: "rgb(0,0,0,0.09) solid 1px",
 			}}
 			trigger={null}
@@ -49,6 +51,13 @@ const SiderSection = (props) => {
 					<a href="https://solfluid.gitbook.io/docs/" target="_blank">Info</a>
 				</Menu.Item>
 			</Menu>
+			<Row style={{position:"absolute", bottom:70, width:"100%"}} align="middle" justify="space-around">
+				{/* <div className="extra-text-view">Darkmode</div> */}
+				<DarkModeToggle
+				onChange={props.dark.toggle}
+				checked={props.dark.value}
+				size={60}/>
+			</Row>
 		</Sider>
 	);
 };

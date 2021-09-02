@@ -115,7 +115,8 @@ const TableContent = ({
 							<Row gutter={[16, 16]}>
 								<Col span={12}>
 									<Meta
-										style={{ backgroundColor: "white" }}
+									className="stream-meta-view"
+									
 										className="card-custom-extra item-heading"
 										title="Start Time"
 										description={startTime}
@@ -123,7 +124,7 @@ const TableContent = ({
 								</Col>
 								<Col span={12}>
 									<Meta
-										style={{ backgroundColor: "white" }}
+										
 										className="card-custom-extra item-heading"
 										title="End Time"
 										description={endTime}
@@ -131,7 +132,7 @@ const TableContent = ({
 								</Col>
 								<Col span={12}>
 									<Meta
-										style={{ backgroundColor: "white" }}
+										
 										className="card-custom-extra item-heading"
 										title="Withdrawn"
 										description={withdrawn.toString()}
@@ -139,7 +140,7 @@ const TableContent = ({
 								</Col>
 								<Col span={12}>
 									<Meta
-										style={{ backgroundColor: "white" }}
+										
 										className="card-custom-extra item-heading"
 										title="Sender"
 										description={sender}
@@ -150,7 +151,7 @@ const TableContent = ({
 
 						<Col span={8}>
 							<Card
-								style={{ backgroundColor: "white" }}
+								
 								className="card-custom-extra"
 								title="Available to Claim"
 							>
@@ -169,10 +170,10 @@ const TableContent = ({
 							</Card>
 						</Col>
 					</Row>
-				) : null}
+				) : <div></div>}
 				<br />
 				<br />
-				<div>Streamed</div>
+				<Row className="extra-text-view">Streamed</Row>
 				<Progress
 					strokeColor={{
 						"0%": "#667DE5",
@@ -180,7 +181,7 @@ const TableContent = ({
 					}}
 					percent={streamedProgress}
 				/>
-				<div>Withdrawn</div>
+				<Row className="extra-text-view">Withdrawn</Row>
 				<Progress
 					strokeColor={{
 						"0%": "#667DE5",
@@ -199,7 +200,7 @@ const TableContent = ({
 				style={{ position: "absolute" }}
 			>
 				<Card
-					style={{ backgroundColor: "white" }}
+					
 					className="card-custom-extra"
 					title="Amount"
 				>

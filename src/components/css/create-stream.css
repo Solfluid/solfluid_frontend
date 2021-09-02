@@ -1,3 +1,15 @@
+body.dark-mode .create-stream-steps{
+	background-color: #08060b;
+}
+
+
+body.dark-mode .page-sub-heading{
+	background: rgba(34, 31, 31, 0.089);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+
 .page-heading {
 	font-weight: 600;
 	font-size: 54px;
@@ -15,6 +27,20 @@
 	font-weight: 600;
 	font-size: large;
 }
+
+
+
+.create-stream-steps{
+	background-color: #f6f6f6;
+}
+/* 
+body.light-mode .create-stream-steps{
+		background-color: white;
+} */
+
+
+
+
 
 .site-page-header {
 	padding: 10px;

@@ -34,7 +34,7 @@ const HeaderSection = (props) => {
 
 	return (
 		<Header
-			className="site-layout-background"
+			className="site-layout-background-header"
 			style={{ padding: 0, position: "fixed", zIndex: 1, width: "100%" }}
 		>
 			<Row justify="space-between">
