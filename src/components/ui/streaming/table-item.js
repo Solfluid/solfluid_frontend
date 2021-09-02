@@ -54,6 +54,7 @@ const Tableitem = ({
           <h4 className="item-sub-heading">To</h4>
           <h3 className="item-heading">
             { receiver }
+            {" "}
             <CheckCircleTwoTone />
           </h3>
         </Col>
@@ -83,7 +84,7 @@ const Tableitem = ({
           </h3>
         </Col>
         <Col>
-          {toggle ? (
+          {!toggle ? (
             <DownCircleOutlined style={{ fontSize: "25px", marginRight: 40 }} />
           ) : (
             <UpCircleOutlined style={{ fontSize: "25px", marginRight: 40 }} />
@@ -91,7 +92,7 @@ const Tableitem = ({
         </Col>
       </Row>
       {toggle ? (
-        <div className="table-item" style={{ backgroundColor: "#f5f5f5" }}>
+        <div className="table-item" style={{ backgroundColor: "#f6f6f6" }}>
           {children}
         </div>
       ) : null}

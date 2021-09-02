@@ -82,7 +82,7 @@
  }
 
  .ant-card-meta-title{
-    color: #12304bda;
+    color: #12304b9f;
     font-weight: 500;
     font-size: smaller;
  }
@@ -91,6 +91,9 @@
     color: #12304bda;
     font-weight: 500;
     font-size: small;
+ }
+ .ant-card-meta-description{
+    color:#12304bda;
  }
 
  .card-earned-number{
@@ -120,7 +123,9 @@
    position: relative;
    overflow: hidden;
    text-align: center;
-   background: #fafafa;
-   border: 1px solid #ebedf0;
-   border-radius: 2px;
+ }
+
+ .ant-progress-inner{
+    border: #0000002d solid 1px;
+    background-color: white;
  }

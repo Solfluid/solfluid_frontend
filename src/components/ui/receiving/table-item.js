@@ -9,7 +9,7 @@ import {
 
 import "../../css/table-item.css";
 
-const Tableitem = ({children, status, earned, token, amount, cardCss}) => {
+const Tableitem = ({children, status, token, amount, cardCss, sender}) => {
     const [toggle, setToggle] = useState(false);
 
     return (
@@ -27,7 +27,7 @@ const Tableitem = ({children, status, earned, token, amount, cardCss}) => {
                 </Col>  */}
                 <Col>
                     <h4 className="item-sub-heading">From</h4>
-                    <h3 className="item-heading">HDcjW4MVa5rENKAMHcyzzXYnRRKVEw8Y8FmYv9QdoGct<CheckCircleTwoTone/></h3>
+                    <h3 className="item-heading">{sender}{" "}<CheckCircleTwoTone/></h3>
                 </Col>
                 <Col>
                     <h4 className="item-sub-heading">Token</h4>
@@ -43,14 +43,14 @@ const Tableitem = ({children, status, earned, token, amount, cardCss}) => {
                     </h3>
                 </Col>
                 <Col>
-                {(toggle)?
+                {(!toggle)?
                     <DownCircleOutlined style={{fontSize:"25px", marginRight:40}}/>:
                     <UpCircleOutlined style={{fontSize:"25px", marginRight:40}}/>
                 }
                 </Col>
             </Row>
             {(toggle)?(
-                <div className="table-item" style={{backgroundColor:"#f5f5f5",}}>
+                <div className="table-item" style={{backgroundColor:"#f6f6f6",}}>
                     {children}
                 </div>
             ):null}

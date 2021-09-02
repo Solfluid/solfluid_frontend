@@ -38,13 +38,13 @@ const createStreamReducer = (state = { result: false, id: null }, action) => {
       return state;
   }
 };
-const getStreamReducer = (state = { sending: [], receving: [] }, action) => {
+const getStreamReducer = (state = { sending: [], receiving: [] }, action) => {
   switch (action.type) {
     case "DATA_RECEIVED":
       console.log(action);
       return {...state, 
         sending: action.result.sending,
-        receving: action.result.receving,
+        receiving: action.result.receiving,
       };
     default:
       return state;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Row } from "antd";
+import { Button, Col, Row, Switch } from "antd";
 import TableItem from "../ui/streaming/table-item";
 import TableContent from "../ui/streaming/table-item-content";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,6 +9,7 @@ const MyStreams = () => {
   const selector = useSelector((state) => state.streamData);
   const walletSelector = useSelector((state) => state.walletConfig);
   const [streamsList, setStreamsList] = useState([]);
+  const [streamingOnly, setStreamingOnly] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,7 +18,12 @@ const MyStreams = () => {
 
   useEffect(() => {
     setStreamsList(selector.sending);
-  }, [selector]);
+    if(streamingOnly){
+      streamsList.filter((stream)=>{
+        if((stream.is_active && stream.start_time<new Date().getTime()/1000 && stream.end_time>new Date().getTime()/1000)) return stream;
+      })
+    }
+  }, [selector, streamingOnly]);
 
   const cardCssProp = (idx) => {
     if(streamsList.length===1){
@@ -64,11 +70,20 @@ const MyStreams = () => {
           </div>
         </h3>
       </Col>
-
+     
       <div style={{ backgroundColor: "#faf9fa", padding: 25, height: "100%" }}>
-        {streamsList.length === 0 ? (
+        
+        <Row justify="space-between" style={{margin:"0 20px", padding:"20px"}}>
+            <div><Switch onChange={(e)=>{setStreamingOnly(e)}}/> Streaming Only</div>
+            <Button type="text" style={{borderRadius:"10px", backgroundColor:"#188fff11"}} onClick={()=>dispatch(getAllStreams())}>Refresh</Button>
+        </Row>
+
+        {streamsList.length === 0 ? ((!walletSelector.wallet.connected)?
           <Row justify="space-around" align="middle" style={{height: "70%" }}>
             Connect wallet to view outgoing streams!
+          </Row>:
+          <Row justify="space-around" align="middle" style={{height: "70%" }}>
+              Create a stream to get started!
           </Row>
         ) : 
           streams

@@ -8,7 +8,7 @@ import {
 import axios from "../config";
 
 const programAccount = new PublicKey(
-  "35onwr95TiPmRJLthsNsPuLXxuyDyz8krsZe5vHHVsFr"
+  "2F2XupZErDDHKniN4nkEHGsf7j7c7egmMHzVrhWpfXi2"
 );
 
 export const connectWallet = () => {
@@ -49,35 +49,38 @@ export const disconnectWallet = () => {
   };
 };
 
-export const withdraw = ({ streamId, amountToWithdraw }) => {
+export const withdraw = ( streamId, amountToWithdraw ) => {
   return async (dispatch, getState) => {
     try {
       const { walletConfig } = getState();
       const connection = walletConfig.connection;
       const wallet = walletConfig.wallet;
 
-      let pubkey = PublicKey(streamId);
-      let response = axios.post("/withdraw", { amount: amountToWithdraw });
+      let pubkey = new PublicKey(streamId);
+      let response = await axios.post("/withdraw", { amount: amountToWithdraw });
       const createInstruction = new TransactionInstruction({
         keys: [
           { pubkey: pubkey, isSigner: false, isWritable: true },
-          { pubkey: wallet.publicKey, isSigner: true, isWritable: false },
+          { pubkey: wallet.publicKey, isSigner: true, isWritable: true },
         ],
         programId: programAccount,
         data: response.data.result,
       });
       const trans = await setPayerAndBlockhashTransaction(
         wallet,
-        createInstruction
+        createInstruction,
+        connection
       );
-      const signature = await signAndSendTransaction(wallet, trans);
+      const signature = await signAndSendTransaction(wallet, trans, connection);
       const result = await connection.confirmTransaction(
         signature,
-        "singleGossip"
+        "withdraw"
       );
       console.log("end sendMessage", result);
+      dispatch(getAllStreams());
     } catch (e) {
       console.log(e);
+      dispatch(getAllStreams());
     }
   };
 };
@@ -100,9 +103,9 @@ export const cancelStream = (streamId, rewardForReceiver, receiverAddress) => {
           {
             pubkey: wallet.publicKey,
             isSigner: true,
-            isWritable: false,
+            isWritable: true,
           },
-          { pubkey: reciverpubket, isSigner: false, isWritable: false },
+          { pubkey: reciverpubket, isSigner: false, isWritable: true },
         ],
         programId: programAccount,
         data: response.data.result,
@@ -167,7 +170,7 @@ export const createStream = ({
       });
       console.log(response);
 
-      const space = 104;
+      const space = response.data.result.length;
       const lamports =
         (await connection.getMinimumBalanceForRentExemption(space)) +
         amounttosend;
