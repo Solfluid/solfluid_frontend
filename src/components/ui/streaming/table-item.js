@@ -6,9 +6,9 @@ import {
 	DownCircleOutlined,
 	UpCircleOutlined,
 } from "@ant-design/icons";
-import { isMobile } from "react-device-detect";
 
 import "../../css/table-item.css";
+import { isMobile } from "react-device-detect";
 
 const Tableitem = ({
 	children,
@@ -28,7 +28,7 @@ const Tableitem = ({
 				align="middle"
 				className={`table-item ${cardCss}`}
 				onClick={(e) => {
-					if(!isMobile){
+					if (!isMobile) {
 						setToggle(!toggle);
 					}
 				}}

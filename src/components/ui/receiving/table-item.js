@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Row, Col, Popover } from "antd";
-import { isMobile } from "react-device-detect";
 import {
 	QuestionCircleOutlined,
 	CheckCircleTwoTone,
@@ -20,9 +19,7 @@ const Tableitem = ({ children, status, token, amount, cardCss, sender }) => {
 				align="middle"
 				className={`table-item ${cardCss}`}
 				onClick={(e) => {
-					if(!isMobile){
-						setToggle(!toggle);
-					}
+					setToggle(!toggle);
 				}}
 			>
 				<h3 className="item-heading">{status}</h3>

@@ -62,6 +62,7 @@ const TableContent = ({
 	return (
 		<div className="site-drawer-render-in-current-wrapper">
 			<div style={{ padding: 30, border: "rgb(0,0,0,0.09) solid 1px" }}>
+				
 				<Row justify="space-between" align="middle">
 					<Col span={15}>
 						<Row gutter={[16, 16]}>

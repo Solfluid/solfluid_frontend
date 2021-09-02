@@ -36,11 +36,11 @@ const App = () => {
   const location = useLocation()
 	const [key, setKey] = useState(getKey(location.pathname));
 
-  useEffect(()=>{
-    if(isMobile){
-      openNotificationFail();
-    }
-  });
+  // useEffect(()=>{
+  //   if(isMobile){
+  //     openNotificationFail();
+  //   }
+  // });
 
   return (
     <Layout>
