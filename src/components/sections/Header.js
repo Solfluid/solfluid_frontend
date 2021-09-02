@@ -9,12 +9,15 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 
 import { connectWallet, disconnectWallet } from "../../actions";
+import { isMobile } from "react-device-detect";
 
 const { Header } = Layout;
 
 const HeaderSection = (props) => {
 	const toggle = () => {
-		props.setCollapsed(!props.collapsed);
+		if(!isMobile){
+			props.setCollapsed(!props.collapsed);
+		}
 	};
 
 	const selector = useSelector((state) => state.walletConfig);
