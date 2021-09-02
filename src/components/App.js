@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Layout } from "antd";
+import React, { useEffect, useState } from "react";
+import { Layout, notification } from "antd";
 import { Switch, Route, useLocation } from "react-router-dom";
+import { isMobile } from "react-device-detect";
 
 import Sider from "./sections/Sider";
 import Header from "./sections/Header";
@@ -21,18 +22,32 @@ function getKey(path) {
 	return "1";
 }
 
+const openNotificationFail = () => {
+	notification["warning"]({
+		message: "The DApp is not Optimised for Mobile",
+		description:
+			"The DApp is still under construction! We recommend using it on desktop.",
+	});
+};
+
 
 const App = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState((isMobile)?true:false);
   const location = useLocation()
 	const [key, setKey] = useState(getKey(location.pathname));
+
+  useEffect(()=>{
+    if(isMobile){
+      openNotificationFail();
+    }
+  });
 
   return (
     <Layout>
       <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
       <Layout>
-        <Sider keyName={key} collapsed={collapsed} />
+        <Sider setKey={setKey} getKey={getKey} keyName={key} collapsed={collapsed} />
         <Layout
           className="site-layout"
           style={{ marginLeft: `${collapsed ? "80px" : "200px"}` }}
@@ -61,7 +76,7 @@ const App = () => {
                 <CreateStream setKey={setKey} />
               </Route>
               <Route path="/">
-                <Dashboard collapsed={collapsed} />
+                <Dashboard setKey={setKey} collapsed={collapsed} />
               </Route>
             </Switch>
           </Content>

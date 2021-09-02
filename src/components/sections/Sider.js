@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import { Layout, Menu } from "antd";
 import {
 	HomeOutlined,
@@ -12,6 +12,10 @@ import { Link, useLocation } from "react-router-dom";
 const { Sider } = Layout;
 
 const SiderSection = (props) => {
+	const location = useLocation()
+	useEffect(()=>{
+		props.setKey(props.getKey(location.pathname));
+	},[props.keyName]);
 	
 	return (
 		<Sider
