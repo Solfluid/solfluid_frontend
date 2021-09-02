@@ -1,229 +1,243 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
-body{
-  font-family: 'Poppins', sans-serif;
-  color: #383838;
+body {
+	font-family: "Poppins", sans-serif;
+	color: #383838;
 }
 
 .trigger {
-    padding: 0 24px;
-    font-size: 18px;
-    line-height: 64px;
-    cursor: pointer;
-    transition: color 0.3s;
-  }
-  
-  .trigger:hover {
-    color: #1890ff;
-  }
-  
-  .logo {
-    font-family: 'Poppins', sans-serif;
-    background: rgba(255, 255, 255, 0.3);
-    font-weight: 700;
-    font-size: large;
-    color: rgba(22, 126, 187, 0.746);
-  }
-  
-  .site-layout-background {
-    background: #fff;
-  }
+	padding: 0 24px;
+	font-size: 18px;
+	line-height: 64px;
+	cursor: pointer;
+	transition: color 0.3s;
+}
 
+.trigger:hover {
+	color: #1890ff;
+}
 
-  .home-header{
-    font-weight: 600;
-    font-size: 48px;
-    margin-left: 20px;
-    background: -webkit-linear-gradient(#667DE5, #856BCC,#965AB0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+.logo {
+	font-family: "Poppins", sans-serif;
+	background: rgba(255, 255, 255, 0.3);
+	font-weight: 700;
+	font-size: large;
+	color: rgba(22, 126, 187, 0.746);
+}
 
+.site-layout-background {
+	background: #fff;
+}
 
-  .balloon-animation{
-    height: 75vh;
-    width:75vh;
-    position: absolute;
-    right:0;
-  }
+.home-header {
+	font-weight: 600;
+	font-size: 48px;
+	margin-left: 20px;
+	background: -webkit-linear-gradient(#667de5, #856bcc, #965ab0);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
 
-
-
+.balloon-animation {
+	height: 75vh;
+	width: 75vh;
+	position: absolute;
+	right: 0;
+}
 
 .waves {
-  position:relative;
-  width: 100%;
-  height:15vh;
-  margin-bottom:-7px;
-  min-height:100px;
-  max-height:150px;
+	position: relative;
+	width: 100%;
+	height: 15vh;
+	margin-bottom: -7px;
+	min-height: 100px;
+	max-height: 150px;
 }
 
 :root {
-  --text-color: white;
-  --shadow-color: hsla(210, 40%, 52%, .4);
-  --btn-color: #1890ff;
-  --bg-color: #141218;
+	--text-color: white;
+	--shadow-color: hsla(210, 40%, 52%, 0.4);
+	--btn-color: #1890ff;
+	--bg-color: #141218;
 }
 
 .animated-button {
-  position:relative;
-  padding: 10px 20px;  
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-transform: uppercase; 
-  color: var(--text-color);
-  
-  background-color: var(--btn-color);
-  box-shadow: var(--shadow-color) 2px 2px 22px;
-  border-radius: 20px; 
-  z-index: 0;  
-  overflow: hidden;   
+	position: relative;
+	padding: 10px 20px;
+	border: none;
+	background: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	color: var(--text-color);
+
+	background-color: var(--btn-color);
+	box-shadow: var(--shadow-color) 2px 2px 22px;
+	border-radius: 20px;
+	z-index: 0;
+	overflow: hidden;
 }
 
 .animated-button2 {
-  position:relative;
-  padding: 10px 20px;  
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-transform: uppercase; 
-  color: var(--btn-color);
-  
-  background-color: white;
-  box-shadow: var(--shadow-color) 2px 2px 22px;
-  border-radius: 20px; 
-  z-index: 0;  
-  overflow: hidden;   
+	position: relative;
+	padding: 10px 20px;
+	border: none;
+	background: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	color: var(--btn-color);
+
+	background-color: white;
+	box-shadow: var(--shadow-color) 2px 2px 22px;
+	border-radius: 20px;
+	z-index: 0;
+	overflow: hidden;
 }
 
 .animated-button:focus {
-  outline-color: transparent;
-  box-shadow: var(--btn-color) 2px 2px 22px;
+	outline-color: transparent;
+	box-shadow: var(--btn-color) 2px 2px 22px;
 }
 
 .animated-button2:focus {
-  outline-color: transparent;
-  box-shadow: var(--btn-color) 2px 2px 22px;
+	outline-color: transparent;
+	box-shadow: var(--btn-color) 2px 2px 22px;
 }
 
-.right::after,.animated-button::after {
-  content: var(--content);
-  display: block;
-  position: absolute;
-  white-space: nowrap;
-  padding: 40px 40px;
-  pointer-events:none;
+.right::after,
+.animated-button::after {
+	content: var(--content);
+	display: block;
+	position: absolute;
+	white-space: nowrap;
+	padding: 40px 40px;
+	pointer-events: none;
 }
 
-.animated-button::after{
-  font-weight: 200;
-  top: -30px;
-  left: -20px;
-} 
+.animated-button::after {
+	font-weight: 200;
+	top: -30px;
+	left: -20px;
+}
 
-.right, .left {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
+.right,
+.left {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
 }
 .right {
-  left: 66%;
+	left: 66%;
 }
 .left {
-  right: 66%;
+	right: 66%;
 }
 .right::after {
-  top: -30px;
-  left: calc(-66% - 20px);
-  
-  background-color: var(--bg-color);
-  color:transparent;
-  transition: transform .4s ease-out;
-  transform: translate(0, -90%) rotate(0deg)
+	top: -30px;
+	left: calc(-66% - 20px);
+
+	background-color: var(--bg-color);
+	color: transparent;
+	transition: transform 0.4s ease-out;
+	transform: translate(0, -90%) rotate(0deg);
 }
 
 .animated-button:hover .right::after {
-  transform: translate(0, -47%) rotate(0deg)
+	transform: translate(0, -47%) rotate(0deg);
 }
 
 .animated-button .right:hover::after {
-  transform: translate(0, -50%) rotate(-7deg)
+	transform: translate(0, -50%) rotate(-7deg);
 }
 
 .animated-button .left:hover ~ .right::after {
-  transform: translate(0, -50%) rotate(7deg)
+	transform: translate(0, -50%) rotate(7deg);
 }
 
 /* bubbles */
 .animated-button::before {
-  content: '';
-  pointer-events: none;
-  opacity: .6;
-  background:
-    radial-gradient(circle at 20% 35%,  transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
-    radial-gradient(circle at 75% 44%, transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
-    radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);
+	content: "";
+	pointer-events: none;
+	opacity: 0.6;
+	background: radial-gradient(
+			circle at 20% 35%,
+			transparent 0,
+			transparent 2px,
+			var(--text-color) 3px,
+			var(--text-color) 4px,
+			transparent 4px
+		),
+		radial-gradient(
+			circle at 75% 44%,
+			transparent 0,
+			transparent 2px,
+			var(--text-color) 3px,
+			var(--text-color) 4px,
+			transparent 4px
+		),
+		radial-gradient(
+			circle at 46% 52%,
+			transparent 0,
+			transparent 4px,
+			var(--text-color) 5px,
+			var(--text-color) 6px,
+			transparent 6px
+		);
 
-  width: 100%;
-  height: 300%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  animation: bubbles 5s linear infinite both;
+	width: 100%;
+	height: 300%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	animation: bubbles 5s linear infinite both;
 }
 
 @keyframes bubbles {
-  from {
-    transform: translate();
-  }
-  to {
-    transform: translate(0, -66.666%);
-  }
+	from {
+		transform: translate();
+	}
+	to {
+		transform: translate(0, -66.666%);
+	}
 }
-
-
 
 /* Animation */
 
 .parallax > use {
-  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+	animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
 .parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
+	animation-delay: -2s;
+	animation-duration: 7s;
 }
 .parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
+	animation-delay: -3s;
+	animation-duration: 10s;
 }
 .parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
+	animation-delay: -4s;
+	animation-duration: 13s;
 }
 .parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
+	animation-delay: -5s;
+	animation-duration: 20s;
 }
 @keyframes move-forever {
-  0% {
-   transform: translate3d(-90px,0,0);
-  }
-  100% { 
-    transform: translate3d(85px,0,0);
-  }
+	0% {
+		transform: translate3d(-90px, 0, 0);
+	}
+	100% {
+		transform: translate3d(85px, 0, 0);
+	}
 }
 /*Shrinking for mobile*/
 @media (max-width: 768px) {
-  .waves {
-    height:40px;
-    min-height:40px;
-  }
-  .balloon-animation{
-    height: 40vh;
-    width: 40vh;
-  }
+	.waves {
+		height: 40px;
+		min-height: 40px;
+	}
+	.balloon-animation {
+		height: 40vh;
+		width: 40vh;
+	}
 }
-  

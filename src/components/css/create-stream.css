@@ -1,32 +1,31 @@
-.page-heading{
-    font-weight: 600;
-    font-size: 54px;
-    margin-left: 20px;
-    background: -webkit-linear-gradient(#667DE5, #856BCC,#965AB0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.page-heading {
+	font-weight: 600;
+	font-size: 54px;
+	margin-left: 20px;
+	background: -webkit-linear-gradient(#667de5, #856bcc, #965ab0);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
-.page-sub-heading{
-    background: rgba(34, 31, 31, 0.651);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-left: 5px;
-    font-weight: 600;
-    font-size: large;
+.page-sub-heading {
+	background: rgba(34, 31, 31, 0.651);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin-left: 5px;
+	font-weight: 600;
+	font-size: large;
 }
 
-.site-page-header{
-    padding: 10px;
+.site-page-header {
+	padding: 10px;
 }
 
-.steps{
-    -webkit-border-radius: 12px; 
+.steps {
+	-webkit-border-radius: 12px;
 
-    /* Firefox 1-3.6 */
-    -moz-border-radius: 12px; 
-    
-    /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
-    border-radius: 12px; 
+	/* Firefox 1-3.6 */
+	-moz-border-radius: 12px;
 
+	/* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+	border-radius: 12px;
 }

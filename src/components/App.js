@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Layout } from "antd";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 
 import Sider from "./sections/Sider";
 import Header from "./sections/Header";
@@ -13,15 +13,26 @@ import CreateStream from "./layouts/CreateStream";
 
 const { Content } = Layout;
 
+function getKey(path) {
+	if (path.includes("/sending")) return "2";
+	if (path.includes("/receiving")) return "3";
+	if (path.includes("/createstream")) return "4";
+	if (path.includes("/info")) return "5";
+	return "1";
+}
+
+
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const location = useLocation()
+	const [key, setKey] = useState(getKey(location.pathname));
 
   return (
     <Layout>
       <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
       <Layout>
-        <Sider collapsed={collapsed} />
+        <Sider keyName={key} collapsed={collapsed} />
         <Layout
           className="site-layout"
           style={{ marginLeft: `${collapsed ? "80px" : "200px"}` }}
@@ -47,7 +58,7 @@ const App = () => {
                 <Stream />
               </Route>
               <Route path="/createstream">
-                <CreateStream />
+                <CreateStream setKey={setKey} />
               </Route>
               <Route path="/">
                 <Dashboard collapsed={collapsed} />

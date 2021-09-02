@@ -1,126 +1,131 @@
-.table-item{
-    margin:2px 30px;
+.table-item {
+	margin: 2px 30px;
 }
 
 .card-custom-bottom {
-    box-shadow: rgba(3, 8, 20, 0.2) 0px 0.00rem 0.25rem;
-    transition: all 500ms;
-    overflow: hidden;
-    padding: 10px;
-    cursor: pointer;
+	box-shadow: rgba(3, 8, 20, 0.2) 0px 0rem 0.25rem;
+	transition: all 500ms;
+	overflow: hidden;
+	padding: 10px;
+	cursor: pointer;
 	border-radius: 0px 0px 20px 20px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
- }
- .card-custom-bottom:hover {
-    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-    transform: translateY(-0.5px) scale(1);
- }
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.card-custom-bottom:hover {
+	box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em,
+		rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+	transform: translateY(-0.5px) scale(1);
+}
 
-
- .card-custom-none {
-    box-shadow: rgba(3, 8, 20, 0.2) 0px 0.02rem 0.25rem;
-    transition: all 500ms;
-    overflow: hidden;
-    padding: 10px;
-    cursor: pointer;
+.card-custom-none {
+	box-shadow: rgba(3, 8, 20, 0.2) 0px 0.02rem 0.25rem;
+	transition: all 500ms;
+	overflow: hidden;
+	padding: 10px;
+	cursor: pointer;
 	/* border-radius: 0px 0px 20px 20px; */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
- }
- .card-custom-none:hover {
-    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-    transform: translateY(-0.5px) scale(1);
- }
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.card-custom-none:hover {
+	box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em,
+		rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+	transform: translateY(-0.5px) scale(1);
+}
 
 .card-custom {
-    box-shadow: rgba(3, 8, 20, 0.2) 0px 0.00rem 0.25rem;
-    transition: all 500ms;
-    overflow: hidden;
-    padding: 10px;
-    cursor: pointer;
+	box-shadow: rgba(3, 8, 20, 0.2) 0px 0rem 0.25rem;
+	transition: all 500ms;
+	overflow: hidden;
+	padding: 10px;
+	cursor: pointer;
 	border-radius: 20px 20px 0px 0px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
- }
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
 .card-custom:hover {
-    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-    transform: translateY(-0.5px) scale(1);
- }
+	box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em,
+		rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+	transform: translateY(-0.5px) scale(1);
+}
 
- .card-custom-both {
-    box-shadow: rgba(3, 8, 20, 0.2) 0px 0.00rem 0.25rem;
-    transition: all 500ms;
-    overflow: hidden;
-    padding: 10px;
-    cursor: pointer;
+.card-custom-both {
+	box-shadow: rgba(3, 8, 20, 0.2) 0px 0rem 0.25rem;
+	transition: all 500ms;
+	overflow: hidden;
+	padding: 10px;
+	cursor: pointer;
 	border-radius: 20px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
- }
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
 
- .card-custom-both:hover {
-    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-    transform: translateY(-0.5px) scale(1);
- }
+.card-custom-both:hover {
+	box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em,
+		rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+	transform: translateY(-0.5px) scale(1);
+}
 
-
- .card-custom-extra {
-    box-shadow: rgba(3, 8, 20, 0.2) 0px 0.00rem 0.25rem;
-    transition: all 500ms;
-    overflow: hidden;
-    padding: 10px;
-    cursor: pointer;
+.card-custom-extra {
+	box-shadow: rgba(3, 8, 20, 0.2) 0px 0rem 0.25rem;
+	transition: all 500ms;
+	overflow: hidden;
+	padding: 10px;
+	cursor: pointer;
 	border-radius: 20px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
- }
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
 
- .ant-card-meta-title{
-    color: #12304bda;
-    font-weight: 500;
-    font-size: smaller;
- }
+.ant-card-meta-title {
+	color: #12304b9f;
+	font-weight: 500;
+	font-size: smaller;
+}
 
- .ant-card-head-title{
-    color: #12304bda;
-    font-weight: 500;
-    font-size: small;
- }
+.ant-card-head-title {
+	color: #12304bda;
+	font-weight: 500;
+	font-size: small;
+}
+.ant-card-meta-description {
+	color: #12304bda;
+}
 
- .card-earned-number{
-    color: #12304bda;
-    font-weight: 700;
-    font-size: small;
- }
- /* .card{
+.card-earned-number {
+	color: #12304bda;
+	font-weight: 700;
+	font-size: small;
+}
+/* .card{
 	 border-radius: 20px;
  } */
 
- .item-heading{
-     color: #12304bda;
-     font-weight: 500;
-     font-size: small;
- }
+.item-heading {
+	color: #12304bda;
+	font-weight: 500;
+	font-size: small;
+}
 
- .item-sub-heading{
-    color: rgba(24, 24, 24, 0.747);
-    font-weight: 500;
-    font-size: smaller;
- }
+.item-sub-heading {
+	color: rgba(24, 24, 24, 0.747);
+	font-weight: 500;
+	font-size: smaller;
+}
 
+.site-drawer-render-in-current-wrapper {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
 
-
- .site-drawer-render-in-current-wrapper {
-   position: relative;
-   overflow: hidden;
-   text-align: center;
-   background: #fafafa;
-   border: 1px solid #ebedf0;
-   border-radius: 2px;
- }
+.ant-progress-inner {
+	border: #0000002d solid 1px;
+	background-color: white;
+}
