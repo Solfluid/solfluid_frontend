@@ -6,6 +6,7 @@ import {
 	DownCircleOutlined,
 	UpCircleOutlined,
 } from "@ant-design/icons";
+import { isMobile } from "react-device-detect";
 
 import "../../css/table-item.css";
 
@@ -27,7 +28,9 @@ const Tableitem = ({
 				align="middle"
 				className={`table-item ${cardCss}`}
 				onClick={(e) => {
-					setToggle(!toggle);
+					if(!isMobile){
+						setToggle(!toggle);
+					}
 				}}
 			>
 				<h3 className="item-heading">{status}</h3>

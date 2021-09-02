@@ -3,6 +3,7 @@
 body {
 	font-family: "Poppins", sans-serif;
 	color: #383838;
+	font-size: 100%;
 }
 
 .trigger {
@@ -27,6 +28,10 @@ body {
 
 .site-layout-background {
 	background: #fff;
+}
+
+.site-layout-background-dark{
+	background: black;
 }
 
 .home-header {

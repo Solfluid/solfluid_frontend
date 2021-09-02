@@ -2,9 +2,21 @@ import React from "react";
 import { useRive } from "rive-react";
 import { Row } from "antd";
 import { LoginOutlined } from "@ant-design/icons";
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
-const Dashboard = ({ collapsed }) => {
-	const { RiveComponent, rive } = useRive({
+import { connectWallet } from "../../actions";
+
+const Dashboard = ({ collapsed, setKey }) => {
+	const selector = useSelector((state) => state.walletConfig);
+	const dispatch = useDispatch();
+
+	const handleOnClick = (e) => {
+		e.preventDefault();
+		dispatch(connectWallet());
+	};
+
+	const { RiveComponent } = useRive({
 		src: "https://cdn.jsdelivr.net/gh/NishantChandla/jsdelivr@master/balloonist_white.riv",
 		stateMachines: "Balloon State Machine",
 		autoplay: true,
@@ -32,20 +44,24 @@ const Dashboard = ({ collapsed }) => {
 						</h2>
 					</div>
 					<Row>
-						<button
-							className="animated-button"
-							style={{ marginLeft: 75 }}
-						>
-							<div class="left-btn"></div>
-							<LoginOutlined /> Connect Wallet
-							<div class="right-btn"></div>
-						</button>
+						{!selector.wallet.connected ? (
+							<button
+								className="animated-button"
+								style={{ marginLeft: 75 }}
+								onClick={handleOnClick}
+							>
+								<div class="left-btn"></div>
+								<LoginOutlined /> Connect Wallet
+								<div class="right-btn"></div>
+							</button>
+						) : null}
 						<button
 							className="animated-button2"
-							style={{ marginLeft: 10 }}
+							style={{ marginLeft: `${selector.wallet.connected?"75px":"10px"}` }}
+							onClick={(e)=>{e.preventDefault();setKey("3");}}
 						>
 							<div class="left-btn"></div>
-							View Stream
+							<Link to="receiving">View Streams</Link>
 							<div class="right-btn"></div>
 						</button>
 					</Row>
