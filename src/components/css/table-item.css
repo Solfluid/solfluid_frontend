@@ -1,5 +1,95 @@
+
+body.dark-mode .table-item{
+	background-color: #27262c;
+}
+
+body.dark-mode .item-heading{
+	color: #f1ebfbcc;
+}
+body.dark-mode .item-sub-heading{
+	color: #8b80ae;
+}
+
+body.dark-mode .table-item-body{
+	background-color:#1d1924;
+}
+
+body.dark-mode .ant-card-meta{
+	background-color: #4a4552;
+}
+
+body.dark-mode .ant-card-head-title{
+	color: #9087ad;
+}
+
+body.dark-mode .ant-card-meta-title{
+	color: #9087ad;
+}
+
+body.dark-mode .ant-card-meta-description{
+	color: #f1ebfbcc;
+}
+
+body.dark-mode .ant-card{
+	background-color: #4a4552;
+	border: none
+}
+body.dark-mode .card-earned-number{
+	color: #f1ebfbcc;
+}
+
+body.dark-mode .extra-text-view{
+	color: #9b9b9bc9;
+}
+
+
+body.dark-mode .ant-progress-text{
+	color: #9b9b9bc9;
+}
+
+body.dark-mode .ant-switch{
+	border: #9b9b9bc9 solid 1px;
+}
+
+body.dark-mode .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+	color: #8b80ae;
+}
+
+body.dark-mode .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title{
+	color: #9b9b9bc9;
+}
+
+body.dark-mode .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description{
+	color: #f1ebfbcc;
+}
+
+
+body.dark-mode .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description{
+	color: #9b9b9bc9;
+}
+
+body.dark-mode .ant-result-title{
+	color: #f1ebfbcc;
+}
+
+
+body.dark-mode .ant-result-subtitle{
+	color: #9b9b9bc9;
+}
+
+
+body.dark-mode .ant-steps-item-icon > .ant-steps-icon{
+	color: #242424c9;
+}
+
+
 .table-item {
 	margin: 2px 30px;
+}
+
+.table-item-body {
+	margin: 2px 30px;
+	background-color: #f6f6f6;
 }
 
 .card-custom-bottom {
@@ -123,9 +213,19 @@
 	position: relative;
 	overflow: hidden;
 	text-align: center;
+
 }
 
 .ant-progress-inner {
 	border: #0000002d solid 1px;
+	background-color: white;
+}
+
+
+.ant-card-meta{
+	background-color: white;
+}
+
+.ant-card{
 	background-color: white;
 }

@@ -94,8 +94,9 @@ const MyStreams = () => {
 			</Col>
 
 			<div
+			 className="stream-view-body"
 				style={{
-					backgroundColor: "#faf9fa",
+					// backgroundColor: "#faf9fa",
 					padding: 25,
 					height: "100%",
 				}}
@@ -109,7 +110,7 @@ const MyStreams = () => {
 							style={{ margin: "0 20px", padding: "20px" }}
 						>
 							{streamsList.length !== 0 ? (
-								<div>
+								<div className="extra-text-view">
 									<Switch
 										onChange={(e) => {
 											setStreamingOnly(e);

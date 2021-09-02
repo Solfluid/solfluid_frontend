@@ -259,8 +259,8 @@ But don't worry This will be returned to you whenever you want to cancel stream 
 				</h3>
 			</Col>
 			<div
+			className="create-stream-steps"
 				style={{
-					backgroundColor: "white",
 					width: "100%",
 					height: "80vh",
 					padding: 20,

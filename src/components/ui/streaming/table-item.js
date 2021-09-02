@@ -98,8 +98,7 @@ const Tableitem = ({
 			</Row>
 			{toggle ? (
 				<div
-					className="table-item"
-					style={{ backgroundColor: "#f6f6f6" }}
+					className="table-item-body"
 				>
 					{children}
 				</div>
