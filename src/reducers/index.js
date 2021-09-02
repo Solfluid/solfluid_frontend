@@ -41,19 +41,45 @@ const createStreamReducer = (state = { result: false, id: null }, action) => {
 const getStreamReducer = (state = { sending: [], receiving: [] }, action) => {
   switch (action.type) {
     case "DATA_RECEIVED":
-      console.log(action);
+      // console.log(action);
       return {...state, 
         sending: action.result.sending,
         receiving: action.result.receiving,
       };
+    case "DATA_NOT_RECEIVED":
+      return { sending: [], receiving: [] };
     default:
       return state;
   }
 };
+
+const withDrawStatus = (state=false , action) => {
+    switch (action.type) {
+		case "WITHDRAW_SUCCESS":
+		  return true;
+		case "WITHDRAW_FAILED":
+		  return false;
+		default:
+		  return state;
+	  }
+}
+
+const cancelStatus = (state=false , action) => {
+    switch (action.type) {
+		case "CANCEL_SUCCESS":
+		  return true;
+		case "CANCEL_FAILED":
+		  return false;
+		default:
+		  return state;
+	  }
+}
 
 
 export default combineReducers({
   walletConfig: connectWalletReducer,
   createStream: createStreamReducer,
   streamData: getStreamReducer,
+  withdrawStatus: withDrawStatus,
+  cancelStatus: cancelStatus
 });
