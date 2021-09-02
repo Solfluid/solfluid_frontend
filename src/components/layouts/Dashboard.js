@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { connectWallet } from "../../actions";
+import { isMobile } from "react-device-detect";
 
 const Dashboard = ({ collapsed, setKey }) => {
 	const selector = useSelector((state) => state.walletConfig);
@@ -55,15 +56,26 @@ const Dashboard = ({ collapsed, setKey }) => {
 								<div class="right-btn"></div>
 							</button>
 						) : null}
-						<button
-							className="animated-button2"
-							style={{ marginLeft: `${selector.wallet.connected?"75px":"10px"}` }}
-							onClick={(e)=>{e.preventDefault();setKey("3");}}
-						>
-							<div class="left-btn"></div>
-							<Link to="receiving">View Streams</Link>
-							<div class="right-btn"></div>
-						</button>
+						{!isMobile ? (
+							<button
+								className="animated-button2"
+								style={{
+									marginLeft: `${
+										selector.wallet.connected
+											? "75px"
+											: "10px"
+									}`,
+								}}
+								onClick={(e) => {
+									e.preventDefault();
+									setKey("3");
+								}}
+							>
+								<div class="left-btn"></div>
+								<Link to="receiving">View Streams</Link>
+								<div class="right-btn"></div>
+							</button>
+						) : null}
 					</Row>
 					{/* </Row> */}
 				</div>

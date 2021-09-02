@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 
 import { withdraw } from "../../../actions";
 import { useSelector } from "react-redux";
+import { isMobile } from "react-device-detect";
 
 const { Meta } = Card;
 
@@ -108,65 +109,67 @@ const TableContent = ({
 	return (
 		<div className="site-drawer-render-in-current-wrapper">
 			<div style={{ padding: 30, border: "rgb(0,0,0,0.09) solid 1px" }}>
-				<Row justify="space-between" align="middle">
-					<Col span={15}>
-						<Row gutter={[16, 16]}>
-							<Col span={12}>
-								<Meta
-									style={{ backgroundColor: "white" }}
-									className="card-custom-extra item-heading"
-									title="Start Time"
-									description={startTime}
-								></Meta>
-							</Col>
-							<Col span={12}>
-								<Meta
-									style={{ backgroundColor: "white" }}
-									className="card-custom-extra item-heading"
-									title="End Time"
-									description={endTime}
-								></Meta>
-							</Col>
-							<Col span={12}>
-								<Meta
-									style={{ backgroundColor: "white" }}
-									className="card-custom-extra item-heading"
-									title="Withdrawn"
-									description={withdrawn.toString()}
-								></Meta>
-							</Col>
-							<Col span={12}>
-								<Meta
-									style={{ backgroundColor: "white" }}
-									className="card-custom-extra item-heading"
-									title="Sender"
-									description={sender}
-								></Meta>
-							</Col>
-						</Row>
-					</Col>
-
-					<Col span={8}>
-						<Card
-							style={{ backgroundColor: "white" }}
-							className="card-custom-extra"
-							title="Available to Claim"
-						>
-							<Row justify="space-between">
-								<div className="card-earned-number">
-									{streamedAmount}
-								</div>
-								<Button
-									type="primary"
-									shape="round"
-									onClick={() => setDrawer(true)}
-								>
-									Withdraw
-								</Button>
+				{!isMobile ? (
+					<Row justify="space-between" align="middle">
+						<Col span={15}>
+							<Row gutter={[16, 16]}>
+								<Col span={12}>
+									<Meta
+										style={{ backgroundColor: "white" }}
+										className="card-custom-extra item-heading"
+										title="Start Time"
+										description={startTime}
+									></Meta>
+								</Col>
+								<Col span={12}>
+									<Meta
+										style={{ backgroundColor: "white" }}
+										className="card-custom-extra item-heading"
+										title="End Time"
+										description={endTime}
+									></Meta>
+								</Col>
+								<Col span={12}>
+									<Meta
+										style={{ backgroundColor: "white" }}
+										className="card-custom-extra item-heading"
+										title="Withdrawn"
+										description={withdrawn.toString()}
+									></Meta>
+								</Col>
+								<Col span={12}>
+									<Meta
+										style={{ backgroundColor: "white" }}
+										className="card-custom-extra item-heading"
+										title="Sender"
+										description={sender}
+									></Meta>
+								</Col>
 							</Row>
-						</Card>
-					</Col>
-				</Row>
+						</Col>
+
+						<Col span={8}>
+							<Card
+								style={{ backgroundColor: "white" }}
+								className="card-custom-extra"
+								title="Available to Claim"
+							>
+								<Row justify="space-between">
+									<div className="card-earned-number">
+										{streamedAmount}
+									</div>
+									<Button
+										type="primary"
+										shape="round"
+										onClick={() => setDrawer(true)}
+									>
+										Withdraw
+									</Button>
+								</Row>
+							</Card>
+						</Col>
+					</Row>
+				) : null}
 				<br />
 				<br />
 				<div>Streamed</div>
