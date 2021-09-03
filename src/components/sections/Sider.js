@@ -1,26 +1,27 @@
-import React, {useEffect} from "react";
-import { Layout, Menu, Row } from "antd";
+import React, { useEffect } from "react";
+import { Layout, Menu, Row, Col, Button } from "antd";
 import {
 	HomeOutlined,
 	DownloadOutlined,
 	SendOutlined,
 	FormOutlined,
 	BarChartOutlined,
+	GithubOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
-import DarkModeToggle from 'react-dark-mode-toggle';
+import DarkModeToggle from "react-dark-mode-toggle";
 
 const { Sider } = Layout;
 
 const SiderSection = (props) => {
-	const location = useLocation()
-	useEffect(()=>{
+	const location = useLocation();
+	useEffect(() => {
 		props.setKey(props.getKey(location.pathname));
-	},[props.keyName]);
-	
+	}, [props.keyName]);
+
 	return (
 		<Sider
-		className="sider-view"
+			className="sider-view"
 			style={{
 				overflow: "auto",
 				height: "100vh",
@@ -34,7 +35,11 @@ const SiderSection = (props) => {
 			collapsible
 			collapsed={props.collapsed}
 		>
-			<Menu theme="light" mode="inline" defaultSelectedKeys={[props.keyName]}>
+			<Menu
+				theme="light"
+				mode="inline"
+				defaultSelectedKeys={[props.keyName]}
+			>
 				<Menu.Item key="1" icon={<HomeOutlined />}>
 					<Link to="/"> Home </Link>
 				</Menu.Item>
@@ -48,15 +53,30 @@ const SiderSection = (props) => {
 					<Link to="/createstream"> Create Stream </Link>
 				</Menu.Item>
 				<Menu.Item key="5" icon={<BarChartOutlined />}>
-					<a href="https://solfluid.gitbook.io/docs/" target="_blank">Info</a>
+					<a href="https://solfluid.gitbook.io/docs/" target="_blank">
+						Info
+					</a>
 				</Menu.Item>
 			</Menu>
-			<Row style={{position:"absolute", bottom:70, width:"100%"}} align="middle" justify="space-around">
+			<Row
+				style={{ position: "absolute", bottom: 40, width: "100%" }}
+				align="middle"
+				justify="space-around"
+			>
 				{/* <div className="extra-text-view">Darkmode</div> */}
-				<DarkModeToggle
-				onChange={props.dark.toggle}
-				checked={props.dark.value}
-				size={60}/>
+				<Col>
+					<div style={{textAlign:"center", marginBottom:"10px"}}>
+						<a href="https://github.com/solfluid" target="_blank">
+							<GithubOutlined  style={{padding:"0 auto", fontSize:"20px"}} />
+						</a>
+					</div>
+
+					<DarkModeToggle
+						onChange={props.dark.toggle}
+						checked={props.dark.value}
+						size={50}
+					/>
+				</Col>
 			</Row>
 		</Sider>
 	);

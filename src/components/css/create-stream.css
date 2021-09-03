@@ -9,6 +9,30 @@ body.dark-mode .page-sub-heading{
 	-webkit-text-fill-color: transparent;
 }
 
+body.dark-mode .ant-result-content{
+	background: #08060b;
+}
+
+body.dark-mode .ant-form-item-label label{
+	color: #f1ebfbcc;
+}
+
+body.dark-mode input{
+	background: #08060b;
+	color: #f1ebfbcc;
+	opacity:unset;
+}
+
+body.dark-mode .ant-select > .ant-select-selector{
+	background: #08060b;
+	color: #f1ebfbcc;
+}
+
+body.dark-mode .ant-picker-range{
+	background: #08060b;
+	color: #f1ebfbcc;
+}
+
 
 .page-heading {
 	font-weight: 600;

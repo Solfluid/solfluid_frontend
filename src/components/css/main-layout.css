@@ -32,10 +32,10 @@ body.dark-mode .ant-menu-item-active{
 }
 
 body.dark-mode .anticon{
-	color: #a497cf;
+	color: #7e68c7da;
 }
 body.dark-mode .anticon:hover{
-	color: blueviolet;
+	color: rgb(134, 26, 235);
 }
 
 body.dark-mode a{
