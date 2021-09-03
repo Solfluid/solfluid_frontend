@@ -33,6 +33,12 @@ body.dark-mode .ant-picker-range{
 	color: #f1ebfbcc;
 }
 
+body.dark-mode .ant-input[disabled]{
+	background: #08060b;
+	color: #f1ebfbcc;
+	opacity:unset;
+}
+
 
 .page-heading {
 	font-weight: 600;
