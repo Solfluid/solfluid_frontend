@@ -1,4 +1,3 @@
-
 body.dark-mode .table-item{
 	background-color: #27262c;
 }
@@ -79,9 +78,34 @@ body.dark-mode .ant-result-subtitle{
 
 
 body.dark-mode .ant-steps-item-icon > .ant-steps-icon{
-	color: #242424c9;
+	color: #323136;
 }
 
+body.dark-mode .ant-steps-item-icon {
+	background-color: #f1ebfbcc;
+}
+
+body.dark-mode .refresh-btn-view{
+	background-color: #f1ebfbef;
+	color: #7f73a7;
+}
+
+body.dark-mode .ant-drawer-wrapper-body{
+	background: #27262c;
+}
+
+body.dark-mode .ant-drawer-header{
+	background: #27262c;
+}
+
+body.dark-mode .ant-drawer-title{
+	color: #8b80ae;
+}
+
+
+.refresh-btn-view{
+	background-color: #188fff11;
+}
 
 .table-item {
 	margin: 2px 30px;

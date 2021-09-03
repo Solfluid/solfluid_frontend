@@ -98,7 +98,6 @@ const Stream = () => {
 			<div
 			className="stream-view-body"
 				style={{
-					// backgroundColor: "#faf9fa",
 					padding: 25,
 					height: "100%",
 				}}
@@ -124,12 +123,12 @@ const Stream = () => {
 								<div></div>
 							)}
 							<Button
+								className="refresh-btn-view"
 								type="text"
 								style={{
 									borderRadius: "10px",
-									backgroundColor: "#188fff11",
 								}}
-								onClick={() => dispatch(getAllStreams())}
+								onClick={() => {dispatch(getAllStreams());setSkeleton(true)}}
 							>
 								Refresh
 							</Button>
