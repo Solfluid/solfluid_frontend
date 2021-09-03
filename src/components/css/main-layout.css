@@ -45,9 +45,9 @@ body.dark-mode a{
 body.dark-mode a:hover{
 	color: #836dce;
 }
-body.dark-mode .ant-menu-item-selected{
+/* body.dark-mode .ant-menu-item-selected{
 	background: blueviolet;
-}
+} */
 
 body.dark-mode .stream-view-body{
  background: #08060b;
