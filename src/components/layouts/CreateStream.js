@@ -11,6 +11,7 @@ import {
 	Select,
 	DatePicker,
 	Spin,
+	Row
 } from "antd";
 import { SmileOutlined, SmileTwoTone } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
@@ -138,12 +139,12 @@ But don't worry This will be returned to you whenever you want to cancel stream 
 							</Option>
 						</Select>
 					</Form.Item>
-
+				{/* <Row justify="space-around"> */}
 					<Form.Item
-						label="Amount"
+						label="Rate per second"
 						name="Amount"
 						rules={[
-							{ required: true, message: "Enter a valid amount" },
+							{ required: true, message: "Enter a valid rate" },
 						]}
 					>
 						<InputNumber
@@ -152,6 +153,17 @@ But don't worry This will be returned to you whenever you want to cancel stream 
 							onChange={(e) => setAmount(e)}
 						/>
 					</Form.Item>
+					<Form.Item
+						label="Amount"
+						name="Amount_"
+					>
+						<Input
+							disabled={true}
+							placeholder={(range!==undefined)?amount *(range[1].unix()-range[0].unix()):0}
+							// onChange={(e) => setAddress(e.target.value)}
+						/>
+					</Form.Item>
+					{/* </Row> */}
 					<Form.Item
 						name="range-time-picker"
 						label="Start Time - End Time"
