@@ -53,7 +53,8 @@ const Stream = () => {
 			return "card-custom-both";
 		}
 		if (idx === 0) return "card-custom";
-		return "card-custom-bottom";
+		else if(idx === streamsList.length-1) return  "card-custom-bottom"
+		return "card-custom-none";
 	};
 
 	const streams = streamsList.map((stream, idx) => {
