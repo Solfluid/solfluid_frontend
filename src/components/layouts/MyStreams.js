@@ -52,7 +52,7 @@ const MyStreams = () => {
 			return "card-custom-both";
 		}
 		if (idx === 0) return "card-custom";
-		else if(idx === streamsList.length-1) return  "card-custom-bottom"
+		else if (idx === streamsList.length - 1) return "card-custom-bottom";
 		return "card-custom-none";
 	};
 
@@ -94,7 +94,7 @@ const MyStreams = () => {
 			</Col>
 
 			<div
-			 className="stream-view-body"
+				className="stream-view-body"
 				style={{
 					padding: 25,
 					height: "100%",
@@ -108,25 +108,24 @@ const MyStreams = () => {
 							justify="space-between"
 							style={{ margin: "0 20px", padding: "20px" }}
 						>
-							{streamsList.length !== 0 ? (
-								<div className="extra-text-view">
-									<Switch
-										onChange={(e) => {
-											setStreamingOnly(e);
-										}}
-									/>{" "}
-									Streaming Only
-								</div>
-							) : (
-								<div></div>
-							)}
+							<div className="extra-text-view">
+								<Switch
+									onChange={(e) => {
+										setStreamingOnly(e);
+									}}
+								/>{" "}
+								Streaming Only
+							</div>
 							<Button
 								className="refresh-btn-view"
 								type="text"
 								style={{
 									borderRadius: "10px",
 								}}
-								onClick={() => {dispatch(getAllStreams());setSkeleton(true)}}
+								onClick={() => {
+									dispatch(getAllStreams());
+									setSkeleton(true);
+								}}
 							>
 								Refresh
 							</Button>
